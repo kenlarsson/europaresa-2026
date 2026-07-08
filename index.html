@@ -96,14 +96,14 @@ footer { padding:22px 0; border-top:1px solid var(--line); color:var(--faint); f
         <h1>Europaresa 2026</h1>
         <p class="subtitle">Salzburg, Gardasjön och bilresan genom Europa. Dashboarden genereras direkt från resans Markdown-filer.</p>
       </div>
-      <div class="version">v2026.07.08-0007</div>
+      <div class="version">v2026.07.08-1611</div>
     </div>
     <div class="status">
       <div class="status-card"><b>8 källfiler</b><span>Alla integrerade utan manuell kopiering</span></div>
-      <div class="status-card"><b>Senaste källa</b><span>8 juli 2026</span></div>
-      <div class="status-card"><b>Genererad</b><span>2026-07-08</span></div>
+      <div class="status-card"><b>Senaste källa</b><span>8 juli 2026 13:39</span></div>
+      <div class="status-card"><b>Genererad</b><span>2026-07-08 16:11</span></div>
     </div>
-    <div class="changelog"><strong>Ändrat i denna version:</strong> Referens-flik återställd med nödinfo (Autoplan 0771-22 00 00, SOS International +45 70 10 50 50), snabbreferens och destinations-kort. Dagbok uppdaterad med 2026-07-08.</div>
+    <div class="changelog"><strong>Ändrat i denna version:</strong> dashboarden läser nu hela innehållet från samtliga sex Markdown-källor. Scandlines-bokningen, Salzburg-önskelistan, aktuell ekonomi, dagboken och beslutsloggen är inkluderade.</div>
   </div>
 </header>
 <nav>
@@ -975,82 +975,268 @@ footer { padding:22px 0; border-top:1px solid var(--line); color:var(--faint); f
     </section>
 
     <section id="reference" class="panel">
-      <div class="source-label">Källa: <code>snabbreferens.md</code> · <code>nödinfo.md</code></div>
+      <div class="source-label">Källa: <code>snabbreferens.md · nödinfo.md</code></div>
       <article class="markdown-body">
-        <h1>Referens — Europaresa 2026</h1>
+        <h1 id="reference-snabbreferens-europaresa-2026">Snabbreferens — Europaresa 2026</h1>
+<p>Alla bokningsnummer, adresser och viktig info på ett ställe.</p>
 <hr>
-<h2>Bokningar i ett svep</h2>
-<div class="table-wrap"><table><thead><tr><th>Boende</th><th>Bokningsnr</th><th>Datum</th><th>Check-in</th><th>Pris</th></tr></thead><tbody>
-<tr><td>Adesso Hotel Göttingen</td><td>Resplan 72074935107986</td><td>14–15/7</td><td>från 15:00</td><td>650 kr på plats</td></tr>
-<tr><td>Numa Salzburg Ivy</td><td>FFSHJALY-1</td><td>15–19/7</td><td>Digital via Numa-appen ⚠️</td><td>8 039 kr (betalt)</td></tr>
-<tr><td>Hotel MioMio, Tignale</td><td>Resplan 72074943156702</td><td>19–23/7</td><td>Ankomst</td><td>6 012 kr (betalt)</td></tr>
-<tr><td>PLAZA Premium Neu-Ulm</td><td>Resplan 72074942764924</td><td>23–24/7</td><td>från 15:00</td><td>1 540 kr på plats</td></tr>
-<tr><td><strong>Lübeck</strong></td><td><strong>⚠️ EJ BOKAD</strong></td><td>24–25/7</td><td>—</td><td>est. 800–1 200 kr</td></tr>
+<h2 id="reference-bokningar">Bokningar</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Boende</th>
+<th>Bokningsnr</th>
+<th>Datum</th>
+<th>Check-in</th>
+<th>Pris</th>
+</tr></thead><tbody>
+<tr>
+<td>Adesso Hotel Göttingen</td>
+<td>Resplan 72074935107986</td>
+<td>14–15/7</td>
+<td>från 15:00</td>
+<td>650 kr på plats</td>
+</tr>
+<tr>
+<td>Numa Salzburg Ivy</td>
+<td>FFSHJALY-1</td>
+<td>15–19/7</td>
+<td>Digital via Numa-appen ⚠️</td>
+<td>8 039 kr (betalt)</td>
+</tr>
+<tr>
+<td>Hotel MioMio, Tignale</td>
+<td>Resplan 72074943156702</td>
+<td>19–23/7</td>
+<td>Ankomst</td>
+<td>6 012 kr (betalt)</td>
+</tr>
+<tr>
+<td>PLAZA Premium Neu-Ulm</td>
+<td>Resplan 72074942764924</td>
+<td>23–24/7</td>
+<td>från 15:00</td>
+<td>1 540 kr på plats</td>
+</tr>
+<tr>
+<td>Lübeck</td>
+<td><strong>EJ BOKAD</strong> ⚠️</td>
+<td>24–25/7</td>
+<td>—</td>
+<td>est. 800–1 200 kr</td>
+</tr>
 </tbody></table></div>
-<h2>Transport</h2>
-<div class="table-wrap"><table><thead><tr><th>Post</th><th>Info</th></tr></thead><tbody>
-<tr><td>Scandlines tur</td><td>Rödby → Puttgarden · 14/7 kl 13:15 · Check-in stänger 13:00</td></tr>
-<tr><td>Scandlines bokningsnr</td><td>S2600993914 · Biljettnr SC2601753669</td></tr>
-<tr><td>Öresundsbron (tur)</td><td>Biljettnr 98026305 — ingår i Scandlines</td></tr>
-<tr><td>Scandlines retur</td><td>Puttgarden → Rödby · 25/7 kl 13:45 · Check-in stänger 13:30</td></tr>
-<tr><td>Öresundsbron (retur)</td><td>Biljettnr 39124508 — ingår i Scandlines</td></tr>
-<tr><td>Bil</td><td>Tesla Model Y · Reg.nr UKL90S</td></tr>
+<h2 id="reference-transport">Transport</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Post</th>
+<th>Info</th>
+</tr></thead><tbody>
+<tr>
+<td>Scandlines tur</td>
+<td>Rödby → Puttgarden · 14/7 kl 13:15 · Check-in stänger 13:00</td>
+</tr>
+<tr>
+<td>Scandlines bokningsnr</td>
+<td>S2600993914 · Biljettnr SC2601753669</td>
+</tr>
+<tr>
+<td>Öresundsbron (tur)</td>
+<td>Biljettnr 98026305 — ingår i Scandlines</td>
+</tr>
+<tr>
+<td>Scandlines retur</td>
+<td>Puttgarden → Rödby · 25/7 kl 13:45 · Check-in stänger 13:30</td>
+</tr>
+<tr>
+<td>Öresundsbron (retur)</td>
+<td>Biljettnr 39124508 — ingår i Scandlines</td>
+</tr>
+<tr>
+<td>Bil</td>
+<td>Tesla Model Y · Reg.nr UKL90S</td>
+</tr>
+<tr>
+<td>Chargemap Pass</td>
+<td>✅ aktiverat</td>
+</tr>
 </tbody></table></div>
 <hr>
-<h2>Nödinformation</h2>
-<h3>Viktigaste numren</h3>
-<div class="table-wrap"><table><thead><tr><th>Tjänst</th><th>Nummer</th><th>När</th></tr></thead><tbody>
-<tr><td><strong>112</strong></td><td><strong>112</strong></td><td>Personskada, polis, brand</td></tr>
-<tr><td><strong>Autoplan Förarsupport</strong></td><td><strong>0771-22 00 00</strong></td><td>Driftstopp, bärgning, hyrbil, skadeanmälan</td></tr>
-<tr><td><strong>SOS International</strong></td><td><strong>+45 70 10 50 50</strong></td><td>Bilskada utomlands</td></tr>
-<tr><td>Tesla Roadside</td><td>00800 80 30 40</td><td>Eller via Tesla-appen</td></tr>
-<tr><td>UD konsulärjour</td><td>+46 8 405 50 05</td><td>Konsulär hjälp dygnet runt</td></tr>
+<h2 id="reference-destinations-kort">Destinations-kort</h2>
+<h3 id="reference-gottingen-dag-1-2-14-15-7">Göttingen · Dag 1–2 · 14–15/7</h3>
+<ul>
+<li><strong>Hotell:</strong> Adesso Hotel Göttingen · Check-in från 15:00, Check-out 11:00</li>
+<li><strong>Parkering:</strong> 1 €/tim vid automat framför hotellet — betala vid automaten, inte vid bommen</li>
+<li><strong>Laddning:</strong> Närmaste SC på vägen in: Hannover SC (~100 km norr)</li>
+<li><strong>Gammalt:</strong> Historisk universitetsstad — Markt, Gänseliesel-fontänen, Altes Rathaus, promenad längs Groner Straße om ork finns efter lång kördag</li>
+</ul>
+<hr>
+<h3 id="reference-salzburg-dag-2-6-15-19-7">Salzburg · Dag 2–6 · 15–19/7</h3>
+<ul>
+<li><strong>Boende:</strong> Numa Salzburg Ivy · Bokningsnr FFSHJALY-1</li>
+<li><strong>⚠️ Inget reception</strong> — digital check-in MÅSTE göras i Numa-appen senast 13/7</li>
+<li><strong>Frukostval:</strong> Senast 15/7 kl 20:00 via Numa-appen</li>
+<li><strong>Laddning:</strong> Supercharger Salzburg Europark-galleriet (~3 km från Altstadt)</li>
+<li><strong>Parkering:</strong> Europark-galleriet (samma som SC) eller längs Salzach</li>
+<li><strong>ZTL/kärna:</strong> Salzburg Altstadt är delvis trafikbegränsad — parkera utanför och gå</li>
+<li><strong>Viktiga platser:</strong> Getreidegasse, Festung Hohensalzburg (linbana), Residenzplatz, Stiftskeller St. Peter (lunch)</li>
+<li><strong>Werfen (dag 3, 16/7):</strong> ~40 km söderut. Eisriesenwelt + Burg Hohenwerfen. Tidsbiljetter till Eisriesenwelt bör vara bokade på eisriesenwelt.at</li>
+</ul>
+<hr>
+<h3 id="reference-tignale-gardasjon-dag-6-10-19-23-7">Tignale / Gardasjön · Dag 6–10 · 19–23/7</h3>
+<ul>
+<li><strong>Hotell:</strong> Hotel MioMio, Tignale · Platå högt uppe — pool är primär svalka, sjöbad kräver nedkörning</li>
+<li><strong>Laddning vardagstoppling:</strong> Neogy Gardola · P.le S. Francesco d'Assisi 8, Gardola (~5 min) · Chargemap Pass eller QR-kod · 22 kW AC</li>
+<li><strong>Snabbladdning:</strong> SC Rovereto (~35 km), SC Trento (~40 km)</li>
+<li><strong>ZTL:</strong> Gardasjö-orter (Riva del Garda, Limone m.fl.) har ZTL-zoner — kör ej in i stadskärna utan att se efter skylt</li>
+<li><strong>Dag 7:</strong> Tremosine-platån + Strada della Forra</li>
+<li><strong>Dag 8:</strong> Lago di Tenno (turkost bergsbad, ~30 min) + Canale di Tenno (medeltida by)</li>
+<li><strong>Dag 9:</strong> Beslut kvarstår — Lago di Ledro (lugnt bad) eller Brenta-Dolomiterna/Lago di Tovel</li>
+</ul>
+<hr>
+<h3 id="reference-ulm-dag-10-11-23-24-7">Ulm · Dag 10–11 · 23–24/7</h3>
+<ul>
+<li><strong>Hotell:</strong> PLAZA Premium Parkhotel Neu-Ulm · Bokningsnr Resplan 72074942764924 · Parkering ingår</li>
+<li><strong>Check-in:</strong> från 15:00 · Check-out: senast 11:00</li>
+<li><strong>Laddning på vägen:</strong> SC München</li>
+<li><strong>Sevärt (ca 45 min promenad):</strong> Ulm Münster (tornets 768 trappsteg om ork), Fischerviertel längs Donau, Stadtmauer</li>
+<li><strong>Mat:</strong> Fischerviertel har flera restauranger med utsikt mot Donau</li>
+</ul>
+<hr>
+<h3 id="reference-lubeck-dag-11-12-24-25-7">Lübeck · Dag 11–12 · 24–25/7</h3>
+<ul>
+<li><strong>Hotell:</strong> ⚠️ Ej bokat — sök nära gamla stan, estimat 800–1 200 kr</li>
+<li><strong>Laddning på vägen:</strong> SC Kassel + SC Hamburg (dag 11 är 760 km, lång kördag — tidig start)</li>
+<li><strong>Morgon 25/7:</strong> Tid i Lübeck fram till ~12:30 — Holstentor, Marienkirche, Mengstraße (ca 1,5–2 timmar)</li>
+<li><strong>Färja:</strong> Puttgarden ~30 km bort · Lämna Lübeck senast 12:30</li>
+</ul>
+<hr>
+<h1 id="reference-nodinformation-europaresa-2026">Nödinformation — Europaresa 2026</h1>
+<hr>
+<h2 id="reference-nodnummer">Nödnummer</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Tjänst</th>
+<th>Nummer</th>
+<th>Not</th>
+</tr></thead><tbody>
+<tr>
+<td>Generellt nödnummer (EU)</td>
+<td><strong>112</strong></td>
+<td>Fungerar i SE/DE/AT/IT</td>
+</tr>
+<tr>
+<td><strong>Autoplan Förarsupport</strong></td>
+<td><strong>0771-22 00 00</strong></td>
+<td>Driftstopp, bärgning, hyrbil, skadeanmälan</td>
+</tr>
+<tr>
+<td><strong>SOS International</strong></td>
+<td><strong>+45 70 10 50 50</strong></td>
+<td>Bilskada utomlands</td>
+</tr>
+<tr>
+<td>UD:s konsulärjour</td>
+<td>+46 8 405 50 05</td>
+<td>Dygnet runt</td>
+</tr>
+<tr>
+<td>Tesla Roadside</td>
+<td>00800 80 30 40</td>
+<td>Eller via Tesla-appen</td>
+</tr>
 </tbody></table></div>
-<h3>Vid olycka utomlands — gör så här</h3>
+<h2 id="reference-svenska-ambassader-och-konsulat">Svenska ambassader och konsulat</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Land</th>
+<th>Ort</th>
+<th>Telefon</th>
+</tr></thead><tbody>
+<tr>
+<td>Tyskland</td>
+<td>Berlin</td>
+<td>+49 30 505 060</td>
+</tr>
+<tr>
+<td>Österrike</td>
+<td>Wien</td>
+<td>+43 1 408 1688</td>
+</tr>
+<tr>
+<td>Italien</td>
+<td>Rom</td>
+<td>+39 06 441 941</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2 id="reference-bil-och-vagassistans">Bil och vägassistans</h2>
+<p><strong>Fordon:</strong> Tesla Model Y · Reg.nr: UKL90S</p>
+<p><strong>JSC — driftstopp och vardagsproblem:</strong></p>
+<ul>
+<li>Ring <strong>Autoplan Förarsupport: 0771-22 00 00</strong></li>
+<li>De hjälper med: bärgning, verkstadsbokning, hyrbil, skadeanmälan</li>
+</ul>
+<p><strong>JSC — vid olycka utomlands:</strong></p>
+<ol>
+<li>Säkra platsen och hantera personskador (ring 112 vid behov)</li>
+<li>Ring <strong>SOS International: +45 70 10 50 50</strong></li>
+<li>Ring <strong>Autoplan: 0771-22 00 00</strong></li>
+<li>Informera JSC — Emma/HR (trafikolyckor ska rapporteras till HR snarast)</li>
+</ol>
+<p><strong>Dokument som ska finnas i bilen:</strong></p>
+<ul>
+<li>Grönt kort (försäkringsbevis)</li>
+<li>Registreringsbevis</li>
+<li>Skadeanmälningsblankett (europeisk)</li>
+</ul>
+<hr>
+<h2 id="reference-vid-trafikolycka-checklista">Vid trafikolycka — checklista</h2>
 <ol>
 <li>Sätt på varningsblinkers</li>
-<li>Ta på reflexväst — <strong>obligatoriskt i Österrike</strong></li>
+<li>Ta på reflexväst — <strong>obligatoriskt i Österrike och starkt rekommenderat i Italien</strong></li>
 <li>Sätt ut varningstriangel ~50 m bakom bilen</li>
 <li>Ring 112 om personskada</li>
-<li>Fotografera: skador, motpartens reg.nr, plats</li>
-<li>Byt uppgifter: namn, adress, telefon, försäkringsbolag</li>
-<li>Ring <strong>SOS International +45 70 10 50 50</strong></li>
-<li>Ring <strong>Autoplan 0771-22 00 00</strong> (bärgning, hyrbil)</li>
-<li>Informera Emma/HR på JSC snarast</li>
+<li>Fotografera: skador på bilen, motpartens reg.nr, plats, omständigheter</li>
+<li>Byt uppgifter med motparten: namn, adress, telefon, försäkringsbolag</li>
+<li>Ring <strong>SOS International +45 70 10 50 50</strong> (bilskada utomlands)</li>
+<li>Ring <strong>Autoplan 0771-22 00 00</strong> (bärgning, hyrbil, skadeanmälan)</li>
+<li>Informera Emma/HR på JSC snarast möjligt</li>
 </ol>
 <hr>
-<h2>Destinations-kort</h2>
-<h3>Göttingen · 14–15/7</h3>
+<h2 id="reference-sjukvard">Sjukvård</h2>
+<p><strong>EU-kort (Europeiskt sjukvårdskort):</strong></p>
 <ul>
-<li><strong>Parkering:</strong> 1 €/tim vid automat framför hotellet — betala vid automaten, inte vid bommen</li>
-<li><strong>Tips:</strong> Historisk universitetsstad — Markt, Gänseliesel-fontänen om ork finns efter lång kördag</li>
+<li>Utfärdas av Försäkringskassan — kontrollera att det följer med</li>
+<li>Täcker akutvård i EU till samma kostnad som för landets invånare</li>
 </ul>
-<h3>Salzburg · 15–19/7</h3>
+<p><strong>Privatläkare / akutmottagning:</strong></p>
 <ul>
-<li><strong>⚠️ Inget reception</strong> — digital check-in via Numa-appen senast 13/7 · Bokningsnr FFSHJALY-1</li>
-<li><strong>Frukostval:</strong> senast 15/7 kl 20:00 via Numa-appen</li>
-<li><strong>Laddning:</strong> Supercharger Salzburg Europark-galleriet (~3 km från Altstadt)</li>
-<li><strong>ZTL:</strong> Altstadt är delvis trafikbegränsad — parkera vid Europark och gå</li>
-<li><strong>Werfen (16/7):</strong> ~40 km söderut · Eisriesenwelt + Burg Hohenwerfen · Tidsbiljetter bör vara bokade</li>
+<li>Sök via Google Maps: &quot;Arzt&quot; (DE/AT) eller &quot;Medico&quot; / &quot;Pronto Soccorso&quot; (IT)</li>
+<li>Spara kvitto — ersätts via sjukförsäkring</li>
 </ul>
-<h3>Tignale / Gardasjön · 19–23/7</h3>
-<ul>
-<li><strong>Hotell:</strong> Hotel MioMio — platå högt uppe, pool är primär svalka</li>
-<li><strong>Laddning:</strong> Neogy Gardola · P.le S. Francesco d'Assisi 8 · ~5 min · Chargemap Pass eller QR</li>
-<li><strong>Snabbladdning:</strong> SC Rovereto (~35 km), SC Trento (~40 km)</li>
-<li><strong>ZTL:</strong> Gardasjö-orter har ZTL-zoner — kör ej in i stadskärna utan att se efter skylt</li>
-</ul>
-<h3>Ulm · 23–24/7</h3>
-<ul>
-<li><strong>Hotell:</strong> PLAZA Premium Parkhotel Neu-Ulm · Parkering ingår · Check-in från 15:00</li>
-<li><strong>Sevärt:</strong> Ulm Münster + Fischerviertel längs Donau — ca 45 min promenad</li>
-</ul>
-<h3>Lübeck · 24–25/7</h3>
-<ul>
-<li><strong>⚠️ Hotell ej bokat</strong> — sök nära gamla stan</li>
-<li><strong>Morgon 25/7:</strong> Tid fram till ~12:30 · Holstentor + Marienkirche + Mengstraße (~1,5–2 timmar)</li>
-<li><strong>Färja:</strong> Puttgarden ~30 km · Lämna Lübeck senast 12:30</li>
-</ul>
+<hr>
+<h2 id="reference-viktiga-telefonnummer-att-ha-sparat-i-telefonen">Viktiga telefonnummer att ha sparat i telefonen</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Vad</th>
+<th>Nummer</th>
+</tr></thead><tbody>
+<tr>
+<td>112 (nöd)</td>
+<td>112</td>
+</tr>
+<tr>
+<td>Autoplan Förarsupport</td>
+<td>0771-22 00 00</td>
+</tr>
+<tr>
+<td>SOS International</td>
+<td>+45 70 10 50 50</td>
+</tr>
+<tr>
+<td>UD konsulärjour</td>
+<td>+46 8 405 50 05</td>
+</tr>
+<tr>
+<td>Tesla Roadside</td>
+<td>00800 80 30 40</td>
+</tr>
+</tbody></table></div>
       </article>
     </section>
 
@@ -1149,7 +1335,7 @@ Varför: ...</code></pre>
     </section></div>
 </main>
 <footer>
-  <div class="wrap">Europaresa 2026 · genererad från Markdown · 2026-07-08 13:53</div>
+  <div class="wrap">Europaresa 2026 · genererad från Markdown · 2026-07-08 16:11</div>
 </footer>
 <script>
 document.querySelectorAll('.tab').forEach(button => {
