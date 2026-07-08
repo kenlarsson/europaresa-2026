@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Europaresa 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Spline+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:#f7f4ed; --paper:#fffdf8; --card:#fff; --pine:#1e3a2f; --pine2:#2d5443;
+  --lake:#1f7a8c; --lake-soft:#e2f1f3; --amber:#b9791a; --amber-soft:#fbf1dd;
+  --green:#1d9e75; --green-soft:#e4f6ee; --red:#c2512e; --ink:#2a2a24;
+  --muted:#6a675c; --faint:#918d80; --line:#e4dfd2; --line2:#eee9dc; --radius:14px;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0; background:var(--cream); color:var(--ink); font-family:'Spline Sans',sans-serif; line-height:1.65;
+  background-image:radial-gradient(circle at 15% 0%,rgba(31,122,140,.07),transparent 42%),radial-gradient(circle at 90% 10%,rgba(185,121,26,.06),transparent 38%);
+}
+.wrap { max-width:1080px; margin:0 auto; padding:0 22px; }
+header { padding:50px 0 28px; }
+.header-grid { display:grid; grid-template-columns:1fr auto; gap:24px; align-items:start; }
+.kicker { color:var(--lake); font-size:12px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; }
+h1 { margin:8px 0 10px; color:var(--pine); font:600 clamp(38px,7vw,68px)/1.03 'Fraunces',serif; letter-spacing:-.02em; }
+.subtitle { max-width:700px; margin:0; color:var(--muted); font-size:16px; }
+.version { background:var(--pine); color:white; border-radius:999px; padding:5px 12px; font-size:11px; white-space:nowrap; }
+.status {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:26px;
+}
+.status-card { padding:14px 16px; background:rgba(255,255,255,.72); border:1px solid var(--line); border-radius:12px; }
+.status-card b { display:block; color:var(--pine); font-size:13px; }
+.status-card span { color:var(--muted); font-size:12px; }
+.changelog { margin-top:14px; padding:14px 17px; background:var(--green-soft); border:1px solid #bce6d4; border-radius:12px; font-size:13px; }
+.changelog strong { color:var(--green); }
+nav { position:sticky; top:0; z-index:10; background:rgba(247,244,237,.92); border-bottom:1px solid var(--line); backdrop-filter:blur(12px); }
+.tabs { display:flex; gap:3px; overflow-x:auto; scrollbar-width:none; }
+.tabs::-webkit-scrollbar { display:none; }
+.tab { border:0; border-bottom:3px solid transparent; padding:15px 14px 12px; background:transparent; color:var(--muted); font:500 14px 'Spline Sans',sans-serif; cursor:pointer; white-space:nowrap; }
+.tab:hover { color:var(--pine); }
+.tab.active { color:var(--pine); border-bottom-color:var(--amber); font-weight:700; }
+main { padding:34px 0 80px; }
+.panel { display:none; }
+.panel.active { display:block; animation:fade .25s ease-out; }
+@keyframes fade { from { opacity:0; transform:translateY(5px); } to { opacity:1; transform:none; } }
+.source-label { margin-bottom:12px; color:var(--faint); font-size:12px; text-align:right; }
+.markdown-body { padding:24px clamp(18px,4vw,42px) 42px; background:rgba(255,253,248,.88); border:1px solid var(--line); border-radius:var(--radius); box-shadow:0 10px 32px rgba(30,58,47,.05); }
+.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4 { color:var(--pine); font-family:'Fraunces',serif; line-height:1.22; scroll-margin-top:70px; }
+.markdown-body h1 { margin:0 0 8px; font-size:32px; }
+.markdown-body h2 { margin:34px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); font-size:25px; }
+.markdown-body h3 { margin:26px 0 10px; color:var(--pine2); font-size:20px; }
+.markdown-body h4 { margin:20px 0 8px; font-size:17px; }
+.markdown-body p { margin:10px 0; }
+.markdown-body ul,.markdown-body ol { margin:9px 0 14px; padding-left:23px; }
+.markdown-body li { margin:5px 0; }
+.markdown-body strong { color:var(--pine); }
+.markdown-body a { color:var(--lake); text-decoration-thickness:1px; text-underline-offset:3px; }
+.markdown-body code { padding:2px 5px; background:var(--lake-soft); border-radius:5px; color:#155e6b; font-size:.9em; }
+.markdown-body pre { overflow:auto; padding:15px; background:var(--pine); border-radius:10px; color:#f7f4ed; }
+.markdown-body pre code { padding:0; background:none; color:inherit; }
+.markdown-body blockquote { margin:14px 0; padding:11px 15px; background:var(--amber-soft); border-left:3px solid var(--amber); color:#6f521d; }
+.markdown-body hr { margin:28px 0; border:0; border-top:1px solid var(--line); }
+.table-wrap { overflow-x:auto; margin:14px 0 22px; border:1px solid var(--line); border-radius:10px; background:var(--card); }
+table { width:100%; border-collapse:collapse; font-size:13px; }
+th { background:var(--pine); color:white; text-align:left; font-weight:600; }
+th,td { padding:10px 12px; border-bottom:1px solid var(--line2); vertical-align:top; }
+tr:last-child td { border-bottom:0; }
+tbody tr:nth-child(even) { background:#fbf9f3; }
+.task-list { padding:0 !important; list-style:none; }
+.task { display:flex; gap:10px; align-items:flex-start; padding:9px 0; border-bottom:1px solid var(--line2); }
+.task .box { display:inline-flex; width:19px; height:19px; flex:0 0 19px; align-items:center; justify-content:center; margin-top:2px; border:2px solid #cfc9b9; border-radius:5px; color:white; font-size:12px; font-weight:700; }
+.task.done { color:var(--faint); }
+.task.done .box { border-color:var(--green); background:var(--green); }
+.task.done > span:last-child { text-decoration:line-through; }
+footer { padding:22px 0; border-top:1px solid var(--line); color:var(--faint); font-size:12px; text-align:center; }
+@media (max-width:700px) {
+  header { padding-top:34px; }
+  .header-grid { grid-template-columns:1fr; gap:12px; }
+  .version { justify-self:start; grid-row:1; }
+  .status { grid-template-columns:1fr; gap:8px; }
+  .markdown-body { padding:20px 16px 32px; border-radius:10px; }
+  .markdown-body h1 { font-size:27px; }
+  .markdown-body h2 { font-size:22px; }
+  th,td { min-width:120px; padding:8px 10px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="header-grid">
+      <div>
+        <div class="kicker">Ken och Anna · 14-25 juli 2026</div>
+        <h1>Europaresa 2026</h1>
+        <p class="subtitle">Salzburg, Gardasjön och bilresan genom Europa. Dashboarden genereras direkt från resans Markdown-filer.</p>
+      </div>
+      <div class="version">v2026.07.08-0005</div>
+    </div>
+    <div class="status">
+      <div class="status-card"><b>9 källfiler</b><span>Alla integrerade utan manuell kopiering</span></div>
+      <div class="status-card"><b>Senaste källa</b><span>8 juli 2026</span></div>
+      <div class="status-card"><b>Genererad</b><span>2026-07-08</span></div>
+    </div>
+    <div class="changelog"><strong>Ändrat i denna version:</strong> Tre nya flikar: Packlista (inkl. avresechecklista), Referens (snabbreferens + nödinfo + destinations-kort). Fil döpt om till index.html.</div>
+  </div>
+</header>
+<nav>
+  <div class="wrap tabs"><button class="tab active" data-panel="plan">Resplan</button>
+<button class="tab" data-panel="bookings">Bokningar</button>
+<button class="tab" data-panel="economy">Ekonomi</button>
+<button class="tab" data-panel="tasks">Att göra</button>
+<button class="tab" data-panel="packing">Packlista</button>
+<button class="tab" data-panel="reference">Referens</button>
+<button class="tab" data-panel="diary">Dagbok</button>
+<button class="tab" data-panel="decisions">Beslut</button></div>
+</nav>
+<main>
+  <div class="wrap">
+    <section id="plan" class="panel active">
+      <div class="source-label">Källa: <code>resplan.md</code></div>
+      <article class="markdown-body">
+        <h1 id="plan-resplan-europaresa-2026">Resplan — Europaresa 2026</h1>
+<p>14–25 juli · Ken och Anna · Tesla Model Y från Nässjö</p>
+<p>Denna fil är <strong>sanningen</strong> för vad vi planerar och föreslår per dag. Dagbok, ekonomi och bokningar hänvisar hit.</p>
+<blockquote><strong>OBS:</strong> Resetapparna ner (dag 1-2) och upp (dag 10-11) är klara. Övriga dagar innehåller <strong>rekommendationer</strong>, inte spikade program. Ken och Anna bestämmer ihop vad som faktiskt görs. Markera en dag som spikad när beslutet är taget.</blockquote>
+<blockquote>Transport mellan Salzburg och Gardasjön (dag 6) lutar nu åt Innsbruck/Brenner. Grossglockner finns kvar som bortvalt alternativ om ni ändrar er, men bedöms just nu inte vara värd den extra restiden.</blockquote>
+<hr>
+<h2 id="plan-dag-1-14-7-nassjo-gottingen-630-km">Dag 1 · 14/7 · Nässjö → Göttingen (~630 km)</h2>
+<ul>
+<li>Lång köretapp, planera ca 6–7h</li>
+<li>Supercharger Hannover på vägen</li>
+<li>Tidig start rekommenderas — kolla in i Göttingen på eftermiddagen</li>
+<li>Middag i Göttingen om ork finns</li>
+</ul>
+<p><strong>Praktiskt idag:</strong></p>
+<ul>
+<li><strong>Avresa:</strong> Lämna Nässjö senast 07:30 för god marginal till 13:15-färjan</li>
+<li><strong>Laddning:</strong> Starta med full laddning. Nästa laddstop Supercharger Hannover (~270 km efter Puttgarden)</li>
+<li><strong>Öresundsbron:</strong> Ingår i Scandlines-biljetten (biljettnr 98026305) — kör igenom automatisk fil, inget extra att betala</li>
+<li><strong>Scandlines terminal Rödby:</strong> Anländ senast 12:30–12:45. Check-in stänger 13:00. Bokningsnr S2600993914 — ha redo i telefonen</li>
+</ul>
+<hr>
+<h2 id="plan-dag-2-15-7-gottingen-salzburg-430-km">Dag 2 · 15/7 · Göttingen → Salzburg (~430 km)</h2>
+<ul>
+<li>Kortare etapp, ca 4–5h</li>
+<li>Möjlig paus längs vägen (Nürnberg, München)</li>
+<li>Ladda i Salzburg: Europark-galleriet, ~3 km från Altstadt</li>
+<li>Ta det lugnt efter ankomst. Kort promenad i Altstadt på kvällen bara om energi finns.</li>
+</ul>
+<p><strong>Praktiskt idag:</strong></p>
+<ul>
+<li><strong>Österrikisk motorväg:</strong> Kontrollera att vignetten är aktiverad i ASFINAG-appen innan du kör in på österrikisk motorväg</li>
+<li><strong>Frukostval Numa:</strong> Välj senast 15/7 kl 20:00 via Numa-appen/webbplatsen (bokningsnr FFSHJALY-1) — görs under kvällen i Salzburg</li>
+</ul>
+<hr>
+<h2 id="plan-dag-3-16-7-werfen-eisriesenwelt-burg-hohenwerfen">Dag 3 · 16/7 · Werfen - Eisriesenwelt + Burg Hohenwerfen</h2>
+<p><strong>Primär plan:</strong> dagstur till Werfen (~40 km söder om Salzburg).</p>
+<ul>
+<li><strong>Eisriesenwelt</strong> — världens största isgrotta, linbana upp + guidad tur (~2–3h totalt). Boka online i förväg, tidsbiljetter.</li>
+<li><strong>Burg Hohenwerfen</strong> — medeltida borg med falkneri, precis intill Eisriesenwelt. Passar som kombinationsdag.</li>
+<li>Hela dagen räcker lagom för båda.</li>
+<li>Planen bygger på att dag 2 blir lugn efter ankomst, och att första hela Salzburg-dagen används till den tydligaste utflykten.</li>
+</ul>
+<p><em>Berchtesgaden/Örnnästet/Königssee är inte längre huvudspåret, men kan finnas kvar som idé om Werfen faller bort.</em></p>
+<hr>
+<h2 id="plan-dag-4-17-7-salzburg-vaderstyrd-dag">Dag 4 · 17/7 · Salzburg - väderstyrd dag</h2>
+<p>Beslutas på plats utifrån väder och ork.</p>
+<p><strong>Alternativ A: Zell am See + klamm</strong></p>
+<ul>
+<li>Heldagstur till Zell am See.</li>
+<li>Prioriteras för natur, vyer och möjlighet till lättare vandring.</li>
+<li>Hitta 2-3 rimliga vandringsleder i förväg så dagen kan väljas snabbt om vädret är rätt.</li>
+<li>Lägg in en klamm på vägen dit eller hem, t.ex. Lammerklamm, Sigmund-Thun Klamm eller Liechtensteinklamm beroende på rutt och öppettider. Almbachklamm nära Salzburg/Berchtesgaden är ett kortare alternativ om ni vill ha klyftmiljö utan att göra dagen lika lång.</li>
+<li>Passar bäst vid bra väder och om ni vill ha sjö, berg och mer natur.</li>
+</ul>
+<p><strong>Alternativ B: Salzburg heldag</strong></p>
+<ul>
+<li>Salzburg Altstadt: Getreidegasse, Mozarts födelsehem, Residenzplatz.</li>
+<li>Festung Hohensalzburg (linbana eller promenad upp).</li>
+<li>Lunchalternativ: Stiftskeller St. Peter.</li>
+<li>Kvällspromenad längs Salzach.</li>
+<li>Passar bäst vid osäkert väder eller om ni vill minska körning.</li>
+<li>Salzburg kan troligen också upplevas i mindre bitar på kvällar och kortare luckor, så en hel dag i staden är inte nödvändigt om vädret talar för naturutflykt.</li>
+</ul>
+<hr>
+<h2 id="plan-dag-5-18-7-salzburg-oppen-dag-salzburg-hallstatt-eller-traunkirchen">Dag 5 · 18/7 · Salzburg - öppen dag: Salzburg, Hallstatt eller Traunkirchen</h2>
+<p>Beslutas på plats. Huvudfrågan är om ni vill lägga mer tid i Salzburg, om Hallstatt ändå känns värt en tidig start, eller om Traunkirchen ger en lugnare Salzkammergut-dag med sjö, berg och mindre turisttryck.</p>
+<p><strong>Alternativ A: Salzburg heldag</strong></p>
+<ul>
+<li>Bra om ni inte hann med Salzburg ordentligt dag 4.</li>
+<li>Mindre körning inför transportdagen till Italien.</li>
+</ul>
+<p><strong>Alternativ B: Hallstatt + ev. Wolfgangsee/Fuschlsee</strong></p>
+<ul>
+<li>Lägre prioritet just nu på grund av turisttryck och behov av mycket tidig avfärd för att få plats och rimlig upplevelse.</li>
+<li><strong>Hallstatt</strong> - parkera utanför byn, ta färjan in eller gå längs sjön.</li>
+<li>Utsiktspunkten Skywalk om inte kön är för lång.</li>
+<li><strong>Wolfgangsee/Fuschlsee</strong> - bad eller kortare stopp om Hallstatt inte tar hela dagen.</li>
+<li>Runda ca 150 km från Salzburg, inga laddproblem.</li>
+</ul>
+<p><strong>Alternativ C: Traunkirchen + Traunsee</strong></p>
+<ul>
+<li>Lugnare alternativ till Hallstatt i Salzkammergut, med sjöläge, bergsvyer och troligen mindre turisttryck.</li>
+<li>Passar om ni vill ha sjö- och alpkänsla utan Hallstatts parkeringsstress och bussgrupper.</li>
+<li>Möjliga stopp: Traunkirchen, Gmunden, promenad längs Traunsee eller kortare utsikts-/badstopp beroende på väder.</li>
+<li>Runda ca 160-180 km från Salzburg beroende på upplägg, inga väntade laddproblem.</li>
+</ul>
+<hr>
+<h2 id="plan-dag-6-19-7-salzburg-tignale">Dag 6 · 19/7 · Salzburg → Tignale</h2>
+<p>Ruttvalet lutar nu åt <strong>Alternativ A: Innsbruck &amp; Brenner</strong>. Utgångspunkt: Salzburg → västra Gardasjön, Limone/Gargnano/Tignale-trakten. Siffrorna är planeringsestimat.</p>
+<div class="table-wrap"><table><thead><tr>
+<th>Alternativ</th>
+<th>Sträcka</th>
+<th>Körtid</th>
+<th>Total tid inkl. paus/laddning</th>
+<th>Laddstopp Model Y</th>
+<th>Karaktär</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>A. Innsbruck &amp; Brenner</strong></td>
+<td>ca 45-50 mil</td>
+<td>4,5-5,5 h</td>
+<td>6-8 h</td>
+<td>0-1</td>
+<td>Snabbast, mest motorväg, effektiv transport</td>
+</tr>
+<tr>
+<td>B. Grossglockner</td>
+<td>ca 50-55 mil</td>
+<td>6-7 h</td>
+<td>9-11 h</td>
+<td>1</td>
+<td>Bortvalt just nu: fin upplevelse men troligen inte värd extra restid denna resdag</td>
+</tr>
+<tr>
+<td>C. Grossglockner + Dolomiterna</td>
+<td>ca 60-65 mil</td>
+<td>8-10 h</td>
+<td>11-14 h</td>
+<td>1-2</td>
+<td>Bortvalt just nu: för lång dag och risk för sen ankomst</td>
+</tr>
+</tbody></table></div>
+<h3 id="plan-alternativ-a-innsbruck-brenner">Alternativ A · Innsbruck &amp; Brenner</h3>
+<p>Väg: Salzburg → Innsbruck → Brennerpasset → Bolzano → Gardasjön.</p>
+<ul>
+<li>Kortast tid och enklast körning.</li>
+<li>Många Tesla Superchargers längs vägen.</li>
+<li>Minst energiförbrukning totalt.</li>
+<li>Nackdel: mer transport än upplevelse och Grossglockner missas, men det vägs upp av rimligare restid och mindre körtrötthet.</li>
+</ul>
+<p>Passar bäst med nuvarande resonemang: komma fram till Gardasjön samma dag utan att vara helt slut.</p>
+<h3 id="plan-alternativ-b-grossglockner">Alternativ B · Grossglockner</h3>
+<p>Väg: Salzburg → Zell am See → Grossglockner Hochalpenstrasse → Heiligenblut → Lienz → vidare mot Italien.</p>
+<ul>
+<li>Spektakulär alpinväg med glaciärer, utsiktsplatser och höga pass.</li>
+<li>Väldigt minnesvärd resdag.</li>
+<li>Nackdelar: vägavgift, längre restid och mycket kurvor.</li>
+<li>Laddning: ladda gärna till 80-100 % i Zell am See. En Model Y klarar passagen utan problem; höjdskillnaden ser tung ut på energigrafen men mycket återvinns på nervägen.</li>
+</ul>
+<p>Status just nu: inte huvudspåret. Bedömningen är att den extra restiden sannolikt inte är värd det på väg ner mot Italien.</p>
+<h3 id="plan-alternativ-c-grossglockner-dolomiterna">Alternativ C · Grossglockner + Dolomiterna</h3>
+<p>Väg: Salzburg → Zell am See → Grossglockner → Lienz → Sillian → Dobbiaco → Cortina d'Ampezzo → Bolzano → Gardasjön.</p>
+<ul>
+<li>Maximal naturupplevelse och klassiska Dolomiter-vyer.</li>
+<li>Fantastiska fotomöjligheter.</li>
+<li>Nackdelar: mycket lång dag bakom ratten, mer trafik på vissa sträckor och risk att det blir svårt att hinna njuta.</li>
+</ul>
+<p>Passar bara om resdagen ska vara en av semesterns höjdpunkter och sen ankomst är okej. Inte huvudspår med nuvarande upplägg.</p>
+<p>Rekommendation just nu: kör <strong>Alternativ A via Innsbruck och Brenner</strong>. Lägg hellre alpupplevelsen på en Salzburg-dag, exempelvis Zell am See + klamm, än att göra transportdagen till Italien onödigt lång.</p>
+<p>Ankomst Hotel MioMio, Tignale. OBS: Hotellet ligger högt uppe på platå — lakeshore-bad kräver nedkörning. Poolbadet är primär svalka.</p>
+<p><strong>Praktiskt idag:</strong></p>
+<ul>
+<li><strong>A13 Innsbruck–Brenner:</strong> Separat vägavgift, ingår INTE i vignetten. Ca €10 — betala med kort vid tollbås</li>
+<li><strong>A22 italienska sidan (Brenner–Garda):</strong> Välj fil med skylt “Carte”, betala med kort. Ca €13–15 till Rovereto/Gardasjö-avfarten</li>
+<li><strong>Totalt motorvägsavgifter dag 6:</strong> Ca €23–25 utöver vignetten</li>
+</ul>
+<hr>
+<h2 id="plan-dag-7-20-7-tignale">Dag 7 · 20/7 · Tignale</h2>
+<ul>
+<li><strong>Tremosine-platån</strong> — promenader och utsikter</li>
+<li><strong>Strada della Forra</strong> — dramatisk klyftkörning längs Garda-kanten</li>
+<li><strong>Laddning:</strong> Parkera vid Neogy-stationen i Gardola (~5 min) under utflykten — 22 kW AC, ~5–6 mil räckvidd per timme. Chargemap Pass eller QR-kod. Rovereto SC (~35 km) för snabbladdning vid behov.</li>
+</ul>
+<hr>
+<h2 id="plan-dag-8-21-7-tignale">Dag 8 · 21/7 · Tignale</h2>
+<ul>
+<li><strong>Lago di Tenno</strong> — turkost bergsbad, parkering + bad (ca 100–300 kr)</li>
+<li>Alternativt Limone sul Garda för shopping och promenad längs strandpromenaden</li>
+<li><strong>Laddning:</strong> Låt bilen stå vid Neogy Gardola under badsäsonen — passiv toppling utan extra tidsspill.</li>
+</ul>
+<hr>
+<h2 id="plan-dag-9-22-7-tignale-obestamt">Dag 9 · 22/7 · Tignale — OBESTÄMT</h2>
+<p>Alternativ — beslut kvarstår:</p>
+<ul>
+<li><strong>Alt A: Lago di Ledro</strong> — lugnt bad, lättillgängligt, ca 30 min från Tignale. Bra om vi vill ha en roligare dag.</li>
+<li><strong>Alt B: Brenta-Dolomiterna</strong> — längre utflykt, Lago di Tovel (rödfärgat vatten, unik natur). Ca 2h dit, heldagsutflykt.</li>
+</ul>
+<hr>
+<h2 id="plan-dag-10-23-7-tignale-ulm-380-km">Dag 10 · 23/7 · Tignale → Ulm (~380 km)</h2>
+<ul>
+<li>Via München (Supercharger)</li>
+<li>Ankomst Ulm på eftermiddagen</li>
+<li><strong>Ulm Münster</strong> — tornets 768 trappsteg om vi orkar, annars bara utsidan</li>
+<li><strong>Gamla stan</strong> längs Donau — fischerviertel (fiskarkvarteret)</li>
+<li>Parkering inkl. på hotellet (PLAZA Premium)</li>
+</ul>
+<p><strong>Praktiskt idag:</strong></p>
+<ul>
+<li><strong>A22 norrut (Garda–Brenner):</strong> Välj “Carte”-fil, betala med kort. Ca €13–15</li>
+<li><strong>A13 (Brenner–Innsbruck):</strong> Ca €10, betala med kort</li>
+<li><strong>Totalt motorvägsavgifter dag 10:</strong> Ca €23–25</li>
+</ul>
+<hr>
+<h2 id="plan-dag-11-24-7-ulm-lubeck-760-km">Dag 11 · 24/7 · Ulm → Lübeck (~760 km)</h2>
+<ul>
+<li>Lång etapp, ca 7–7,5h</li>
+<li>Supercharger Kassel + Supercharger Hamburg</li>
+<li>Sista laddning i Hamburg — därifrån ~70 km till Lübeck</li>
+<li>Tidig start rekommenderas</li>
+</ul>
+<hr>
+<h2 id="plan-dag-12-25-7-lubeck-nassjo">Dag 12 · 25/7 · Lübeck → Nässjö</h2>
+<ul>
+<li><strong>Gamla stan Lübeck</strong> på morgonen om vi hinner</li>
+<li>Holstentor, Marienkirche, Buddenbrooks-huset</li>
+<li>Scandlines Puttgarden → Rödby (45 min) — se bokningar för tider</li>
+<li>Hem till Nässjö på kvällen</li>
+</ul>
+<p><strong>Praktiskt idag:</strong></p>
+<ul>
+<li><strong>Lübeck morgon:</strong> Du har tid fram till ~12:30 — Holstentor, Marienkirche och en promenad längs Mengstraße tar ca 1,5–2 timmar</li>
+<li><strong>Scandlines terminal Puttgarden:</strong> Anländ senast 13:00–13:15. Check-in stänger 13:30. Returbiljettnr 39124508 — ha redo i telefonen</li>
+<li><strong>Öresundsbron:</strong> Ingår i returbiljetten (biljettnr 39124508) — inget extra att betala</li>
+</ul>
+      </article>
+    </section>
+
+    <section id="bookings" class="panel">
+      <div class="source-label">Källa: <code>bokningar.md</code></div>
+      <article class="markdown-body">
+        <h1 id="bookings-bokningar-europaresa-2026">Bokningar — Europaresa 2026</h1>
+<hr>
+<h2 id="bookings-boende">Boende</h2>
+<h3 id="bookings-dag-1-2-gottingen-14-15-juli-1-natt">Dag 1–2 · Göttingen · 14–15 juli (1 natt)</h3>
+<p><strong>Adesso Hotel Göttingen</strong></p>
+<ul>
+<li>Bokningsnr: Resplan 72074935107986</li>
+<li>In: 15.00, Ut: 11.00</li>
+<li>Pris: 650 kr (betalas på plats)</li>
+<li>Parkering: 1 €/tim, ingen dygnstaxa · Betalas vid automat framför hotellet (inte vid bommen)</li>
+</ul>
+<h3 id="bookings-dag-2-6-salzburg-15-19-juli-4-natter">Dag 2–6 · Salzburg · 15–19 juli (4 nätter)</h3>
+<p><strong>Numa Salzburg Ivy</strong></p>
+<ul>
+<li>Bokningsnr: FFSHJALY-1</li>
+<li>Rum: Medium Room with Balcony, 2 vuxna, frukost inkl.</li>
+<li>Betalt: €613,73 (7 841 kr) förbetalt + 69 kr turistskatt (betald av Anna 2026-06-01) + 129 kr på plats = <strong>8 039 kr totalt</strong></li>
+<li>ℹ️ <strong>Turistskatt (6,4 EUR):</strong> Vi fick en digital betalningsförfrågan från Numa men när länken klickades visade systemet &quot;redan betalt&quot;. Viss osäkerhet kring vad som egentligen ingick i vad, men skatten är bekräftad betald.</li>
+<li>⚠️ <strong>Inget reception</strong> — digital check-in krävs via Numa-appen FÖRE ankomst</li>
+<li>⚠️ <strong>Online check-in: senast 13/7</strong> via Numa-appen eller checkin.numastays.com</li>
+<li>⚠️ <strong>Frukostval: senast 15/7 kl 20:00</strong> via Numa-appen/webbplatsen</li>
+</ul>
+<h3 id="bookings-dag-6-10-tignale-19-23-juli-4-natter">Dag 6–10 · Tignale · 19–23 juli (4 nätter)</h3>
+<p><strong>Hotel MioMio, Tignale</strong></p>
+<ul>
+<li>Bokningsnr: Resplan 72074943156702</li>
+<li>Betalt: 5 840 kr förbetalt + 172 kr på plats = <strong>6 012 kr totalt</strong></li>
+<li>OBS: Platå högt uppe — lakeshore-bad kräver nedkörning. Hotellets pool är primär svalka.</li>
+<li>Kontrollera om hotellet har destination charger</li>
+<li><strong>Neogy-station i Gardola</strong> (~5 min körtid) — bra alternativ för daglig toppling, se laddningsguide nedan</li>
+</ul>
+<h3 id="bookings-dag-10-11-ulm-23-24-juli-1-natt">Dag 10–11 · Ulm · 23–24 juli (1 natt)</h3>
+<p><strong>PLAZA Premium Parkhotel Neu-Ulm</strong></p>
+<ul>
+<li>Bokningsnr: Resplan 72074942764924</li>
+<li>In: 15.00, Ut: 11.00</li>
+<li>Pris: 1 540 kr (inkl. parkering, betalas på plats)</li>
+</ul>
+<h3 id="bookings-dag-11-12-lubeck-24-25-juli-1-natt">Dag 11–12 · Lübeck · 24–25 juli (1 natt)</h3>
+<p><strong>⚠️ Ej bokad — boka snarast</strong></p>
+<ul>
+<li>Sök nära gamla stan</li>
+<li>Estimat: 800–1 200 kr</li>
+</ul>
+<hr>
+<h2 id="bookings-transport">Transport</h2>
+<h3 id="bookings-scandlines-resundsbroen-rodby-puttgarden-kombi">Scandlines — Øresundsbroen + Rödby ↔ Puttgarden (kombi)</h3>
+<ul>
+<li>Status: ✅ <strong>Bokad 2026-06-07</strong></li>
+<li>Bokningsnr: <strong>S2600993914</strong> · Biljettnr: SC2601753669</li>
+<li>Pris: <strong>3 999,25 kr</strong> (inkl. avbeställningsservice 150 kr + ETS-tillägg 80 kr), betalt av Ken</li>
+<li>Bil: UKL90S</li>
+</ul>
+<p><strong>Avgång (tur):</strong></p>
+<ul>
+<li>Rödby → Puttgarden, <strong>14 juli kl 13:15</strong>, ankomst 14:00</li>
+<li>Färja: MV Prins Richard</li>
+<li>Öresundsbron-biljettnr: <strong>98026305</strong></li>
+</ul>
+<p><strong>Avgång (retur):</strong></p>
+<ul>
+<li>Puttgarden → Rödby, <strong>25 juli kl 13:45</strong>, ankomst 14:30</li>
+<li>Färja: MV Deutschland</li>
+<li>Öresundsbron-biljettnr: <strong>39124508</strong></li>
+</ul>
+<p><strong>Check-in:</strong></p>
+<ul>
+<li>⚠️ Incheckning stänger <strong>15 minuter före avgång</strong></li>
+<li>Rekommenderas: anländ <strong>30 min–2 timmar</strong> före avgång</li>
+</ul>
+<h3 id="bookings-osterrikisk-vignett">Österrikisk vignett</h3>
+<ul>
+<li>Status: <strong>Ej köpt</strong> — digital via ASFINAG-appen</li>
+<li>Kostnad: ca 340 kr, 10 dagar</li>
+<li>Behövs på österrikiska motorvägar både ner och hem</li>
+</ul>
+<hr>
+<h2 id="bookings-laddning-tesla-model-y">Laddning — Tesla Model Y</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Etapp</th>
+<th>Supercharger / laddpunkt</th>
+<th>Not</th>
+</tr></thead><tbody>
+<tr>
+<td>Dag 1: Sverige → Hannover → Göttingen</td>
+<td>Supercharger Hannover</td>
+<td>~630 km</td>
+</tr>
+<tr>
+<td>Dag 2: Göttingen → Salzburg</td>
+<td>Ladda i Salzburg (Europark-galleriet, 3 km från Altstadt)</td>
+<td></td>
+</tr>
+<tr>
+<td>Dag 3–5: Salzburg-dagar</td>
+<td>Supercharger Salzburg Europark</td>
+<td>Bas för Werfen, Zell am See/klamm, Hallstatt och Salzburg-dagar</td>
+</tr>
+<tr>
+<td>Dag 3: Werfen-runda</td>
+<td>Ladda i Salzburg före/efter vid behov</td>
+<td>Eisriesenwelt + Burg Hohenwerfen, kort runda från Salzburg</td>
+</tr>
+<tr>
+<td>Dag 4/5: Zell am See + klamm</td>
+<td>Ladda i Salzburg före start, ev. AC-laddning i Zell am See vid behov</td>
+<td>Väderstyrd heldag</td>
+</tr>
+<tr>
+<td>Dag 4/5: Hallstatt-runda</td>
+<td>Ingen SC i Salzkammergut - ladda i Salzburg</td>
+<td>Runda ~150 km, inga problem</td>
+</tr>
+<tr>
+<td>Dag 6: Salzburg → Brenner → Tignale</td>
+<td>SC Innsbruck (norr) eller Bressanone/Brixen (söder)</td>
+<td>Nuvarande huvudspår</td>
+</tr>
+<tr>
+<td>Dag 6: Grossglockner-alt</td>
+<td>Ingen laddning längs leden - ladda fullt i Salzburg</td>
+<td>Bortvalt just nu, men behålls som reservidé</td>
+</tr>
+<tr>
+<td>Dag 7–9: Tignale-dagar</td>
+<td><strong>Neogy Gardola</strong> (~5 min, 22 kW AC) för daglig toppling</td>
+<td>Rovereto SC (~35 km) eller Trento SC (~40 km) för snabbladdning. Model Y tar max 11 kW AC → ~5–6 mil/h</td>
+</tr>
+<tr>
+<td>Dag 10: Tignale → München → Ulm</td>
+<td>SC München</td>
+<td></td>
+</tr>
+<tr>
+<td>Dag 11: Ulm → Kassel → Hamburg → Lübeck</td>
+<td>SC Kassel + SC Hamburg</td>
+<td>~760 km, 7,5h</td>
+</tr>
+<tr>
+<td>Dag 12: Lübeck → Puttgarden → Nässjö</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2 id="bookings-laddningsguide-tignale-neogy">Laddningsguide — Tignale (Neogy)</h2>
+<h3 id="bookings-station-gardola">Station: Gardola</h3>
+<p><strong>Adress:</strong> P.le S. Francesco d'Assisi 8, Gardola (direkt i byn) <strong>Nätverk:</strong> Neogy <strong>Uttag:</strong> 2 × Type 2, 22 kW (Model Y laddar ~11 kW AC → ~5–6 mil räckvidd per timme)</p>
+<h3 id="bookings-hur-man-laddar-pa-neogy">Hur man laddar på Neogy</h3>
+<p><strong>Alternativ 1 — Chargemap Pass (rekommenderas):</strong></p>
+<ul>
+<li>Status: <strong>Beställt 2026-06-03</strong>. Betalt: <strong>161 kr</strong> av Ken. Inväntar leverans och aktivering.</li>
+</ul>
+<ol>
+<li>Håll Chargemap Pass-kortet mot RFID-läsaren</li>
+<li>Koppla in kabeln — laddningen startar automatiskt</li>
+<li>Stopp: håll kortet mot läsaren igen, koppla ur</li>
+<li>Faktura per e-post i efterhand, inga utlandsavgifter</li>
+</ol>
+<p><strong>Alternativ 2 — QR-kod (bra backup):</strong></p>
+<ol>
+<li>Skanna QR-koden på stationen med telefonen</li>
+<li>Fyll i uppgifter + betala med kreditkort direkt</li>
+<li>E-postfaktura direkt efter sessionen</li>
+<li>Inget konto, ingen app krävs</li>
+</ol>
+<blockquote><strong>Tips:</strong> Undvik Neogy-appen — recensioner varnar för att kortläsaren ibland inte känner igen kortet och att förskottsbetalning krävs. QR-kod eller Chargemap Pass är säkrare.</blockquote>
+<h3 id="bookings-strategi-vid-tignale">Strategi vid Tignale</h3>
+<ul>
+<li><strong>Vardagstopping:</strong> Kör ner till Gardola, parkera 2–3 timmar vid en utflykt (Tremosine, Lago di Tenno etc.) — laddar passivt medan ni är ute</li>
+<li><strong>Snabbladdning:</strong> Supercharger Rovereto (~35 km, ~25 min) vid behov inför längre dagstur</li>
+<li><strong>SC Affi:</strong> ~60 km söderut vid motorvägen (24 stalls) — strategiskt stopp på väg mot Ulm dag 10</li>
+</ul>
+      </article>
+    </section>
+
+    <section id="economy" class="panel">
+      <div class="source-label">Källa: <code>ekonomi.md</code></div>
+      <article class="markdown-body">
+        <h1 id="economy-ekonomi-europaresa-2026">Ekonomi — Europaresa 2026</h1>
+<p>Snabb inrapportering under resan: vad, belopp, vem betalade, delas eller privat. Format: <code>- [Vad], [belopp kr], [Ken/Anna betalade], [delas 50/50 / Ken privat / Anna privat]</code></p>
+<p>Alla belopp i svenska kronor (kr). Detaljerad slutavstämning i Excel.</p>
+<p>Spann: 35 000–49 000 kr · Realistiskt: <strong>~40 500 kr</strong> för två</p>
+<hr>
+<h2 id="economy-estimat-per-kategori">Estimat per kategori</h2>
+<h3 id="economy-transport">Transport</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Post</th>
+<th>Estimat</th>
+<th>Not</th>
+</tr></thead><tbody>
+<tr>
+<td>El / laddning, ca 3 200 km</td>
+<td>1 800–2 800 kr</td>
+<td>Supercharger, mix med ev. hotelladdning. Ref 2025: ~8 kr/mil</td>
+</tr>
+<tr>
+<td>Scandlines kombi t/r (bro + färja)</td>
+<td>3 000–3 500 kr</td>
+<td><strong>Utfall: 3 999 kr</strong> · Bokt 2026-06-07 · 14/7 13:15 och 25/7 13:50 · Inkl. Öresundsbron, avbeställningsservice och ETS-tillägg</td>
+</tr>
+<tr>
+<td>Österrikisk vignett, 10 dagar</td>
+<td>ca 340 kr</td>
+<td>Digital via ASFINAG</td>
+</tr>
+<tr>
+<td>Brenner-pass + italienska vägtullar</td>
+<td>550–800 kr</td>
+<td>Passeras två gånger. A13 Innsbruck–Brenner ingår ej i vignetten.</td>
+</tr>
+<tr>
+<td>Parkering</td>
+<td>500–1 000 kr</td>
+<td>Garda-orter, badplatser, Tenno/Ledro</td>
+</tr>
+<tr>
+<td><strong>Delsumma transport</strong></td>
+<td><strong>6 090–8 340 kr</strong></td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h3 id="economy-boende-11-natter">Boende · 11 nätter</h3>
+<blockquote><strong>Synkat</strong> = ✅ bekräftat inlagt i Excel · tomt = väntar på att föras in</blockquote>
+<div class="table-wrap"><table><thead><tr>
+<th>Post</th>
+<th>Estimat</th>
+<th>Utfall</th>
+<th>Betalt av</th>
+<th>Delning</th>
+<th>Not</th>
+<th>Synkat</th>
+</tr></thead><tbody>
+<tr>
+<td>Göttingen, 1 natt</td>
+<td>650–850 kr</td>
+<td>650 kr</td>
+<td>Ken</td>
+<td>50/50</td>
+<td>Betalas på plats</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Salzburg Numa Ivy, 4 nätter (FFSHJALY-1)</td>
+<td>3 600–5 200 kr</td>
+<td>8 039 kr (7 841 kr förbetalt + 69 kr skatt + 129 kr på plats)</td>
+<td>Ken/Anna</td>
+<td>50/50</td>
+<td>Skatt betald av Anna</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Tignale Hotel MioMio, 4 nätter</td>
+<td>4 800–7 200 kr</td>
+<td>6 012 kr (5 840 kr förbetalt + 172 kr)</td>
+<td>Ken</td>
+<td>50/50</td>
+<td></td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Ulm PLAZA Premium, 1 natt</td>
+<td>700–1 000 kr</td>
+<td>1 540 kr</td>
+<td>Ken</td>
+<td>50/50</td>
+<td>Inkl. parkering</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Lübeck, 1 natt</td>
+<td>800–1 200 kr</td>
+<td>1 500 kr (estimat)</td>
+<td>Ken</td>
+<td>50/50</td>
+<td>Ej bokad</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Delsumma boende</strong></td>
+<td><strong>10 550–15 450 kr</strong></td>
+<td><strong>~17 741 kr</strong></td>
+<td></td>
+<td></td>
+<td>4 av 5 klara</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h3 id="economy-mat-11-dagar-for-tva">Mat · 11 dagar för två</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Post</th>
+<th>Estimat</th>
+<th>Not</th>
+</tr></thead><tbody>
+<tr>
+<td>Mat totalt</td>
+<td>8 000–12 000 kr</td>
+<td>Frukost ofta inkl., lunch enkelt, middag varannan dag</td>
+</tr>
+<tr>
+<td>Ref 2025</td>
+<td>ca 6 400 kr</td>
+<td>Men det var kategoriserat mat — troligen underskattning</td>
+</tr>
+</tbody></table></div>
+<h3 id="economy-aktiviteter">Aktiviteter</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Post</th>
+<th>Estimat</th>
+<th>Not</th>
+</tr></thead><tbody>
+<tr>
+<td>Königssee båt t/r</td>
+<td>ca 500 kr</td>
+<td></td>
+</tr>
+<tr>
+<td>Örnnästet-buss</td>
+<td>ca 400 kr</td>
+<td></td>
+</tr>
+<tr>
+<td>Lago di Tenno / Ledro, parkering + bad</td>
+<td>100–300 kr</td>
+<td>Bad gratis, parkering tillkommer</td>
+</tr>
+<tr>
+<td>Diverse: gränshandel, glass, kaffe, bad</td>
+<td>2 000–3 500 kr</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Delsumma aktiviteter</strong></td>
+<td><strong>3 000–4 700 kr</strong></td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h3 id="economy-totalt">Totalt</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Kategori</th>
+<th>Lägst</th>
+<th>Realistiskt</th>
+<th>Övre</th>
+</tr></thead><tbody>
+<tr>
+<td>Transport</td>
+<td>6 090 kr</td>
+<td>7 000 kr</td>
+<td>8 340 kr</td>
+</tr>
+<tr>
+<td>Boende</td>
+<td>10 550 kr</td>
+<td>16 000 kr</td>
+<td>15 450 kr</td>
+</tr>
+<tr>
+<td>Mat</td>
+<td>8 000 kr</td>
+<td>10 000 kr</td>
+<td>12 000 kr</td>
+</tr>
+<tr>
+<td>Aktiviteter</td>
+<td>3 000 kr</td>
+<td>3 500 kr</td>
+<td>4 700 kr</td>
+</tr>
+<tr>
+<td>Övrigt/buffert</td>
+<td>2 660 kr</td>
+<td>4 000 kr</td>
+<td>8 060 kr</td>
+</tr>
+<tr>
+<td><strong>Totalt för två</strong></td>
+<td><strong>35 300 kr</strong></td>
+<td><strong>40 500 kr</strong></td>
+<td><strong>48 550 kr</strong></td>
+</tr>
+<tr>
+<td>Per person</td>
+<td>17 650 kr</td>
+<td>20 250 kr</td>
+<td>24 275 kr</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2 id="economy-utfall-dag-for-dag">Utfall dag för dag</h2>
+<h3 id="economy-forberedelser-fore-avresa">Förberedelser före avresa</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Datum</th>
+<th>Post</th>
+<th>Utfall</th>
+<th>Betalt av</th>
+<th>Delning</th>
+<th>Kategori</th>
+<th>Not</th>
+<th>Synkat</th>
+</tr></thead><tbody>
+<tr>
+<td>2026-06-01</td>
+<td>Salzburg turistskatt (Kurtaxe)</td>
+<td>69 kr</td>
+<td>Anna</td>
+<td>50/50</td>
+<td>Boende</td>
+<td>6,4 EUR. Betald digitalt via Numa.</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>2026-06-03</td>
+<td>Chargemap Pass</td>
+<td>162 kr</td>
+<td>Ken</td>
+<td>50/50</td>
+<td>Transport / laddning</td>
+<td>RFID-pass för laddning på Neogy/Gardola och andra nätverk i Europa</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>2026-06-07</td>
+<td>Scandlines kombobiljett t/r</td>
+<td>3 999 kr</td>
+<td>Ken</td>
+<td>50/50</td>
+<td>Transport / färja+bro</td>
+<td>Rödby–Puttgarden 14/7 13:15 och 25/7 13:45. Inkl. Öresundsbron, avbeställningsservice (150 kr) och ETS-tillägg (80 kr). Standard-biljett.</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>2026-06-24</td>
+<td>Badskor, 2 par</td>
+<td>598 kr</td>
+<td>Ken</td>
+<td>50/50</td>
+<td>Utrustning / bad</td>
+<td>299 kr styck.</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<hr>
+<h3 id="economy-dag-1-14-7-nassjo-gottingen">Dag 1 · 14/7 · Nässjö → Göttingen</h3>
+<p><em>(Noteringar)</em></p>
+<hr>
+<h3 id="economy-dag-2-15-7-gottingen-salzburg">Dag 2 · 15/7 · Göttingen → Salzburg</h3>
+<hr>
+<h3 id="economy-dag-3-16-7-salzburg">Dag 3 · 16/7 · Salzburg</h3>
+<hr>
+<h3 id="economy-dag-4-17-7-salzburg">Dag 4 · 17/7 · Salzburg</h3>
+<hr>
+<h3 id="economy-dag-5-18-7-salzburg">Dag 5 · 18/7 · Salzburg</h3>
+<hr>
+<h3 id="economy-dag-6-19-7-salzburg-tignale">Dag 6 · 19/7 · Salzburg → Tignale</h3>
+<hr>
+<h3 id="economy-dag-7-20-7-tignale">Dag 7 · 20/7 · Tignale</h3>
+<hr>
+<h3 id="economy-dag-8-21-7-tignale">Dag 8 · 21/7 · Tignale</h3>
+<hr>
+<h3 id="economy-dag-9-22-7-tignale">Dag 9 · 22/7 · Tignale</h3>
+<hr>
+<h3 id="economy-dag-10-23-7-tignale-ulm">Dag 10 · 23/7 · Tignale → Ulm</h3>
+<hr>
+<h3 id="economy-dag-11-24-7-ulm-lubeck">Dag 11 · 24/7 · Ulm → Lübeck</h3>
+<hr>
+<h3 id="economy-dag-12-25-7-lubeck-nassjo">Dag 12 · 25/7 · Lübeck → Nässjö</h3>
+<hr>
+<h2 id="economy-sammanfattning-per-kategori-fylls-i-efter-resa">Sammanfattning per kategori (fylls i efter resa)</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Kategori</th>
+<th>Estimat</th>
+<th>Utfall</th>
+<th>Not</th>
+</tr></thead><tbody>
+<tr>
+<td>Boende (11 nätter)</td>
+<td>10 550–15 450 kr</td>
+<td>17 672 kr (4 av 5 bokade)</td>
+<td></td>
+</tr>
+<tr>
+<td>El / laddning</td>
+<td>1 800–2 800 kr</td>
+<td>161 kr</td>
+<td>Chargemap Pass beställt, laddkostnader tillkommer</td>
+</tr>
+<tr>
+<td>Scandlines kombi t/r (bro + färja)</td>
+<td>3 000–3 500 kr</td>
+<td>–</td>
+<td>Ref 2025: 3 340 kr</td>
+</tr>
+<tr>
+<td>Österrikisk vignett</td>
+<td>ca 340 kr</td>
+<td>–</td>
+<td></td>
+</tr>
+<tr>
+<td>Vägtullar (Brenner + IT)</td>
+<td>450–700 kr</td>
+<td>–</td>
+<td></td>
+</tr>
+<tr>
+<td>Parkering</td>
+<td>500–1 000 kr</td>
+<td>–</td>
+<td></td>
+</tr>
+<tr>
+<td>Mat</td>
+<td>8 000–12 000 kr</td>
+<td>–</td>
+<td></td>
+</tr>
+<tr>
+<td>Aktiviteter</td>
+<td>3 000–5 200 kr</td>
+<td>–</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Totalt</strong></td>
+<td><strong>35 300–48 550 kr</strong></td>
+<td>–</td>
+<td></td>
+</tr>
+</tbody></table></div>
+      </article>
+    </section>
+
+    <section id="tasks" class="panel">
+      <div class="source-label">Källa: <code>att-gora.md</code></div>
+      <article class="markdown-body">
+        <h1 id="tasks-att-gora-europaresa-2026">Att göra — Europaresa 2026</h1>
+<hr>
+<h2 id="tasks-synkningsregler-att-gora-md-todoist">Synkningsregler — att-gora.md ↔ Todoist</h2>
+<p>Alla uppgifter i denna fil ska hållas synkade med Todoist.</p>
+<p><strong>Etiketter:</strong> Alla Europa 2026-uppgifter ska ha etiketterna <code>europa-2026</code> och <code>resor-äventyr-utmaningar</code>.</p>
+<p><strong>Projekt:</strong> Alla uppgifter läggs i projektet #PLANERAT (projekt-ID: 6XCrG5xfP393qq5v).</p>
+<p><strong>Prioritet:</strong> P3 som standard om inget annat anges.</p>
+<p><strong>Hitta uppgifterna i Todoist:</strong> Filtrera på etiketten <code>europa-2026</code>.</p>
+<p><strong>Synka när:</strong></p>
+<ul>
+<li>Denna fil har uppdaterats (ny uppgift tillagd eller markerad klar)</li>
+<li>Du ombeds boka, besluta eller åtgärda något som rör resan</li>
+<li>En fråga ställs som kan påverka uppgiftslistan</li>
+</ul>
+<p><strong>Synkningsrutin:</strong></p>
+<ol>
+<li>Hämta alla uppgifter med etiketten <code>europa-2026</code> från Todoist</li>
+<li>Jämför med öppna uppgifter i denna fil</li>
+<li>Lägg till saknade uppgifter med båda etiketterna, P3 och lämpligt datum</li>
+<li>Markera klara i Todoist om de är klara i filen, och vice versa</li>
+<li>Ta aldrig bort uppgifter från Todoist utan att bekräfta med Ken</li>
+</ol>
+<hr>
+<h2 id="tasks-oppet">Öppet</h2>
+<ul class="task-list">
+<li class="task done"><span class="box">✓</span><span><strong>Kolla JSC:s bilpolicy</strong> — Autoplan Förarsupport 0771-22 00 00 (driftstopp/bärgning), SOS International +45 70 10 50 50 (olycka utomlands), sedan informera Emma/HR. Grönt kort + registreringsbevis ska finnas i bilen.</span></li>
+<li class="task"><span class="box"></span><span><strong>Besluta dagsprogram med Anna</strong> — ingen dag (utom resetapparna ner och upp) är spikad. Resplanen innehåller rekommendationer. Ken och Anna bestämmer ihop vilka aktiviteter och utflykter som faktiskt görs. Uppdatera resplan.md per dag när beslut är tagna.</span></li>
+<li class="task"><span class="box"></span><span><strong>Bekräfta rutt Salzburg → Gardasjön (dag 6, 19/7)</strong> — nuvarande huvudspår är Innsbruck &amp; Brenner. Grossglockner och Grossglockner + Dolomiterna finns kvar som bortvalda alternativ, men bedöms just nu inte vara värda extra restid. Bekräfta slutligt före avresa så laddning, starttid och ankomst till Tignale kan planeras.</span></li>
+<li class="task"><span class="box"></span><span><strong>Hotell Lübeck, natt 24/7</strong> — enda saknade boendet. Sök nära gamla stan.</span></li>
+<li class="task"><span class="box"></span><span><strong>Kolla med Anna om eurokontanter</strong> — har hon tagit ut? Ref 2025: ~2 400 kr räckte bra för liknande resa. ⚠️ Imorgon torsdag 9/7</span></li>
+<li class="task done"><span class="box">✓</span><span><strong>Scandlines kombipaket: Øresundsbroen + Rödby–Puttgarden, t/r</strong> — bokad 2026-06-07, 3 999 kr. Standard t/r, 14/7 13:15 och 25/7 13:45.</span></li>
+<li class="task"><span class="box"></span><span><strong>Boka/planera Werfen-dagen: Eisriesenwelt + Burg Hohenwerfen</strong> — huvudspår för första hela Salzburg-dagen. Om Eisriesenwelt ska säkras: boka tidsbiljetter online (eisriesenwelt.at). Berchtesgaden/Örnnästet är inte längre huvudspår.</span></li>
+<li class="task"><span class="box"></span><span><strong>Boka tidsbiljetter Eisriesenwelt</strong> — eisriesenwelt.at, välj 16/7. Säsongsbelastat och tidsbegränsat — säljer slut. ⚠️ Gör på fredag 10/7</span></li>
+<li class="task"><span class="box"></span><span><strong>Österrikisk vignett 10 dagar</strong> — digital via ASFINAG-appen före avresa, ca 340 kr</span></li>
+<li class="task"><span class="box"></span><span><strong>Varningstriangel + reflexvästar i bilen</strong> — ⚠️ Obligatoriskt i Österrike att ha i bilen. Starkt rekommenderat i Italien. Kontrollera och lägg i packlistan. Gör på fredag 10/7</span></li>
+<li class="task"><span class="box"></span><span><strong>Ladda ner Numa-appen</strong> — krävs för digital check-in (inget reception). Ladda ner och logga in med bokningsnr FFSHJALY-1. ⚠️ Gör på fredag 10/7</span></li>
+<li class="task"><span class="box"></span><span><strong>Online check-in Numa Salzburg</strong> — via Numa-appen eller checkin.numastays.com · Bokningsnr FFSHJALY-1 · ⚠️ Senast 13/7</span></li>
+<li class="task"><span class="box"></span><span><strong>Välj frukostalternativ Numa Salzburg</strong> — via Numa-appen/webbplatsen ⚠️ Senast 15/7 kl 20:00</span></li>
+<li class="task done"><span class="box">✓</span><span><strong>Ekonomi: Badskor, 2026-06-27, 598 kr, betalt av Ken</strong> — 2 par à 299 kr, delas 50/50. För in i Excel och markera sedan ekonomiraden som synkad.</span></li>
+<li class="task"><span class="box"></span><span><strong>Researcha vandringsleder kring Zell am See</strong> — prioriterat. Ta fram 2-3 leder som funkar som dagsutflykt från Salzburg, gärna med rimlig svårighetsgrad, bra vyer och möjlighet att kombinera med klamm.</span></li>
+<li class="task"><span class="box"></span><span><strong>Kontrollera om Hotel MioMio har destination charger</strong> — noterat i bokningar.md som oklart. Kontakta hotellet eller kolla deras webbplats/PlugShare.</span></li>
+<li class="task"><span class="box"></span><span><strong>Besluta: Dag 9 (22/7)</strong> — Alt A Lago di Ledro (lugnt bad) eller Alt B Brenta-Dolomiterna med Lago di Tovel?</span></li>
+<li class="task"><span class="box"></span><span><strong>Välj väderstyrt upplägg för de två öppna Salzburg-dagarna</strong> — huvudidéer: Zell am See + vandring/klamm en dag, och Salzburg eller Hallstatt som lägre prioriterade alternativ. Bestäms på plats utifrån väder och ork.</span></li>
+<li class="task done"><span class="box">✓</span><span><strong>Aktivera Chargemap Pass när kortet kommer</strong> — ladda ner Chargemap-appen och aktivera RFID-kortet före avresa.</span></li>
+</ul>
+<hr>
+<h2 id="tasks-salzburg-regionens-onskelista">Salzburg-regionens önskelista</h2>
+<p>Attraktioner vi vill se om möjligt. Kategoriserade efter hur väl de passar in i befintlig plan.</p>
+<h3 id="tasks-passar-direkt-in-i-befintlig-plan">Passar direkt in i befintlig plan</h3>
+<ul class="task-list">
+<li class="task"><span class="box"></span><span><strong>Gosau</strong> (~60 km öst om Salzburg) — kan kombineras med Hallstatt-dagen (Dag 5, 18/7). Gosau ligger på vägen mot Hallstatt och ger ett alternativ till Wolfgangsee om tid finns.</span></li>
+<li class="task"><span class="box"></span><span><strong>Traunkirchen / Traunsee</strong> (~80 km öst om Salzburg) — lugnare Salzkammergut-alternativ till Hallstatt för Dag 5. Kombinera med Gmunden, promenad längs Traunsee eller kortare bad-/utsiktsstopp beroende på väder och ork.</span></li>
+<li class="task"><span class="box"></span><span><strong>Almbachklamm</strong> (Marktschellenberg, nära Salzburg) — kort och smidig klyftutflykt nära Salzburg/Berchtesgaden. Passar som halvdagsutflykt eller som lättare naturinslag om ni inte vill göra en lång Zell am See-dag.</span></li>
+<li class="task"><span class="box"></span><span><strong>Lammerklamm</strong> (~30 km söder om Salzburg, Golling) — möjlig klamm för Zell am See-dagen eller annan väderstyrd Salzburg-utflykt.</span></li>
+<li class="task"><span class="box"></span><span><strong>Zell am See</strong> — huvudidé för en väderstyrd heldag från Salzburg, gärna kombinerad med en klamm på vägen dit eller hem.</span></li>
+<li class="task"><span class="box"></span><span><strong>Lammerklamm / Sigmund-Thun Klamm / Liechtensteinklamm</strong> — välj en klamm som passar bäst med Zell am See-rutten och dagens väder.</span></li>
+<li class="task"><span class="box"></span><span><strong>Grossglockner</strong> — bortvalt som huvudspår på transportdagen mot Italien, men kan ligga kvar som reservidé om ni ändrar er.</span></li>
+<li class="task"><span class="box"></span><span><strong>Krimmler Fälle</strong> (~100 km söder om Salzburg) — längre utflykt söder om Salzburg. Inte huvudspår just nu.</span></li>
+<li class="task"><span class="box"></span><span><strong>Burgruine Steinschloß</strong> (nära Krimml) — kan kombineras med Krimmler Fälle på Dag 6.</span></li>
+</ul>
+<h3 id="tasks-ovriga-mojliga-stopp-och-reservspar">Övriga möjliga stopp och reservspår</h3>
+<ul class="task-list">
+<li class="task"><span class="box"></span><span><strong>Eisriesenwelt</strong> (Werfen, ~40 km söder om Salzburg) — världens största isgrotta, ~1,5h tur inkl. linbana. Ingår i huvudspåret för Werfen-dagen.</span></li>
+<li class="task"><span class="box"></span><span><strong>Burg Hohenwerfen</strong> (Werfen, ~40 km söder om Salzburg) — medeltida borg med falkneri, kombineras med Eisriesenwelt på Werfen-dagen.</span></li>
+<li class="task"><span class="box"></span><span><strong>Liechtensteinklamm</strong> (St Johann im Pongau, ~50 km söder om Salzburg) — klyfta med 300m höga väggar, 1 km tillgänglig via träspångar. Kan kombineras med Sigmund-Thun Klamm och Johanneswasserfall i samma område.</span></li>
+<li class="task"><span class="box"></span><span><strong>Sigmund-Thun Klamm</strong> (nära Bischofshofen, ~55 km söder om Salzburg) — kan kombineras med Liechtensteinklamm-dagen.</span></li>
+<li class="task"><span class="box"></span><span><strong>Johanneswasserfall</strong> (St Johann im Pongau-området) — kan kombineras med Liechtensteinklamm-dagen.</span></li>
+<li class="task"><span class="box"></span><span><strong>Seisenbergklamm</strong> (nära Lofer, ~50 km nordväst om Salzburg) — lite utanför vanliga rutter men möjlig halvdagsutflykt.</span></li>
+</ul>
+<h3 id="tasks-formodligen-for-langt-bort">Förmodligen för långt bort</h3>
+<ul class="task-list">
+<li class="task"><span class="box"></span><span><strong>Wörschachklamm</strong> (Styria, ~150 km från Salzburg) — Ken flaggade redan som &quot;kanske lite långt bort&quot;. Troligen inte realistiskt att kombinera med Salzburg-basen.</span></li>
+</ul>
+<hr>
+<h2 id="tasks-klart">Klart</h2>
+<ul class="task-list">
+<li class="task done"><span class="box">✓</span><span>Boende Göttingen — Adesso Hotel Göttingen (Resplan 72074935107986)</span></li>
+<li class="task done"><span class="box">✓</span><span>Boende Salzburg — Numa Salzburg Ivy, 4 nätter (FFSHJALY-1)</span></li>
+<li class="task done"><span class="box">✓</span><span>Boende Tignale — Hotel MioMio, 4 nätter (Resplan 72074943156702)</span></li>
+<li class="task done"><span class="box">✓</span><span>Boende Ulm — PLAZA Premium Parkhotel Neu-Ulm (Resplan 72074942764924)</span></li>
+<li class="task done"><span class="box">✓</span><span>Faktiska boendepriser matade in i ekonomi.md</span></li>
+<li class="task done"><span class="box">✓</span><span>Laddning Tignale kartlagd — Neogy Gardola (~5 min, 22 kW AC), Chargemap Pass eller QR-kod. Rovereto SC (~35 km) som backup.</span></li>
+<li class="task done"><span class="box">✓</span><span>Beställt Chargemap Pass — beställt 2026-06-03, betalt 161 kr av Ken.</span></li>
+<li class="task done"><span class="box">✓</span><span>Ekonomi: Chargemap Pass, 2026-06-03, 161 kr, betalt av Ken — infört i Excel.</span></li>
+<li class="task done"><span class="box">✓</span><span>Scandlines kombobiljett t/r — bokad 2026-06-07, 3 999 kr, betalt av Ken.</span></li>
+</ul>
+<h2 id="tasks-resedag-paminnelser">Resedag-påminnelser</h2>
+<p>Dagsvisa checklistor — lägg in i Todoist med rätt datum så de dyker upp på morgonen.</p>
+<ul class="task-list">
+<li class="task"><span class="box"></span><span><strong>Dag 1 (14/7) – Avresa och färja:</strong> Lämna Nässjö senast 07:30. Full laddning från start. Öresundsbron ingår (biljettnr 98026305). Terminal Rödby: anländ 12:30–12:45, check-in stänger 13:00. Bokningsnr S2600993914.</span></li>
+<li class="task"><span class="box"></span><span><strong>Dag 2 (15/7) – Vignett + Numa frukost:</strong> Kontrollera vignetten aktiverad i ASFINAG-appen vid österrikisk motorväg. Välj frukost i Numa-appen senast 15/7 kl 20:00 (bokningsnr FFSHJALY-1).</span></li>
+<li class="task"><span class="box"></span><span><strong>Dag 6 (19/7) – Motorvägsavgifter till Garda:</strong> A13 Innsbruck–Brenner ca €10 (ingår ej i vignetten). A22 Brenner–Garda ca €13–15. Betala med kort i "Carte"-fil. Totalt ca €23–25.</span></li>
+<li class="task"><span class="box"></span><span><strong>Dag 10 (23/7) – Motorvägsavgifter från Garda:</strong> A22 Garda–Brenner ca €13–15 + A13 ca €10. Betala med kort. Totalt ca €23–25.</span></li>
+<li class="task"><span class="box"></span><span><strong>Dag 12 (25/7) – Färja hem:</strong> Terminal Puttgarden: anländ 13:00–13:15, check-in stänger 13:30. Returbiljettnr 39124508. Öresundsbron ingår. Tid i Lübeck fram till ~12:30.</span></li>
+</ul>
+      </article>
+    </section>
+
+    <section id="packing" class="panel">
+      <div class="source-label">Källa: <code>packlista.md</code></div>
+      <article class="markdown-body">
+        <h1>Packlista — Europaresa 2026</h1>
+<p>Bilresa Sverige–Österrike–Italien–Sverige. 12 dagar, 2 personer, Tesla Model Y. Kontrollera kvällen 13/7.</p>
+<h2>Dokument och pengar</h2>
+<ul class="task-list">
+<li class="task"><span class="box"></span><span>Pass eller nationellt ID-kort (2 pers — EU räcker, men pass rekommenderas)</span></li>
+<li class="task"><span class="box"></span><span>Körkort</span></li>
+<li class="task"><span class="box"></span><span>Bilförsäkringsintyg / grönt kort (kontrollera att det finns i bilen)</span></li>
+<li class="task"><span class="box"></span><span>Scandlines bokningsbekräftelse tillgänglig i telefonen (bokningsnr S2600993914)</span></li>
+<li class="task"><span class="box"></span><span>Alla hotellbokningar tillgängliga offline eller i appen</span></li>
+<li class="task"><span class="box"></span><span>Kreditkort — minst 2 olika (Visa + Mastercard rekommenderas)</span></li>
+<li class="task"><span class="box"></span><span>Eurokontanter (~2 400 kr / ~220 EUR — ref 2025-resa)</span></li>
+<li class="task"><span class="box"></span><span>Numret till bilförsäkringens vägassistans noterat</span></li>
+<li class="task"><span class="box"></span><span>JSC bilpolicyinfo — vad gäller vid olycka eller incident</span></li>
+</ul>
+<h2>Kläder · 12 dagar</h2>
+<ul class="task-list">
+<li class="task"><span class="box"></span><span>T-shirts / linnen (5–6 st)</span></li>
+<li class="task"><span class="box"></span><span>Lättare shorts (2–3 par)</span></li>
+<li class="task"><span class="box"></span><span>Lite snyggare kläder för restaurangkväll</span></li>
+<li class="task"><span class="box"></span><span>Lättare långbyxor / jeans (1–2 par)</span></li>
+<li class="task"><span class="box"></span><span>Tunn fleece eller tröja (kyligt på höjder och kvällar)</span></li>
+<li class="task"><span class="box"></span><span>Regnjacka (berg = oförutsägbart väder)</span></li>
+<li class="task"><span class="box"></span><span>Underkläder och strumpor (7–8 omgångar)</span></li>
+<li class="task"><span class="box"></span><span>Badkläder (2 omgångar)</span></li>
+</ul>
+<h2>Skor</h2>
+<ul class="task-list">
+<li class="task"><span class="box"></span><span>Promenad-/vandringsskor (lämpliga för klamm och Eisriesenwelt)</span></li>
+<li class="task"><span class="box"></span><span>Sandaler eller lättare skor för varma dagar</span></li>
+<li class="task done"><span class="box">✓</span><span>Badskor — köpta</span></li>
+</ul>
+<h2>Bad och utomhus</h2>
+<ul class="task-list">
+<li class="task"><span class="box"></span><span>Solskydd, hög faktor (30–50) — södereuropeisk sol är stark</span></li>
+<li class="task"><span class="box"></span><span>Solglasögon (2 pers)</span></li>
+<li class="task"><span class="box"></span><span>Badhandduk (2 pers)</span></li>
+<li class="task"><span class="box"></span><span>Dagspåse / ryggsäck för utflykter</span></li>
+<li class="task"><span class="box"></span><span>Vattenflaska (2 pers)</span></li>
+<li class="task"><span class="box"></span><span>Keps/mössa för sol och vind på höjder</span></li>
+</ul>
+<h2>Elektronik</h2>
+<ul class="task-list">
+<li class="task"><span class="box"></span><span>Telefoner + laddare (2 pers)</span></li>
+<li class="task"><span class="box"></span><span>Powerbank</span></li>
+<li class="task"><span class="box"></span><span>Kamera + laddare + minneskort</span></li>
+<li class="task"><span class="box"></span><span>Bilhållare för telefon (navigation i Tesla)</span></li>
+<li class="task"><span class="box"></span><span>Hörlurar / earbuds</span></li>
+</ul>
+<h2>Bil och Tesla-specifikt</h2>
+<ul class="task-list">
+<li class="task done"><span class="box">✓</span><span>Chargemap Pass-kort — aktiverat</span></li>
+<li class="task"><span class="box"></span><span><strong>Varningstriangel</strong> ⚠️ kontrollera att den finns i bilen — obligatoriskt i Österrike</span></li>
+<li class="task"><span class="box"></span><span><strong>Reflexvästar</strong> ⚠️ ha i kupén, ej i bagageluckan — obligatoriskt i Österrike</span></li>
+<li class="task"><span class="box"></span><span>Bilförsäkringsdokument och leasingavtal/ägandebevis</span></li>
+<li class="task"><span class="box"></span><span>Laddkabel (medföljer Model Y — kontrollera att den sitter i bilen)</span></li>
+<li class="task"><span class="box"></span><span>Österrikisk vignett — köp i ASFINAG-appen INNAN avresa</span></li>
+</ul>
+<h2>Hygien och apotek</h2>
+<ul class="task-list">
+<li class="task"><span class="box"></span><span>Toalettartiklar (standard)</span></li>
+<li class="task"><span class="box"></span><span>Solskydd (se ovan)</span></li>
+<li class="task"><span class="box"></span><span>Smärtstillande (Alvedon / ibuprofen)</span></li>
+<li class="task"><span class="box"></span><span>Magmedicin / Imodium</span></li>
+<li class="task"><span class="box"></span><span>Plåster och litet sårförband</span></li>
+<li class="task"><span class="box"></span><span>Personliga mediciner</span></li>
+</ul>
+<h2>Kontroll kvällen innan avresa (13/7)</h2>
+<ul class="task-list">
+<li class="task"><span class="box"></span><span>Tesla laddad till 100 %</span></li>
+<li class="task"><span class="box"></span><span>Alla bokningsbekräftelser tillgängliga offline</span></li>
+<li class="task"><span class="box"></span><span>Numa-appen installerad och check-in genomförd (senast 13/7)</span></li>
+<li class="task"><span class="box"></span><span>Vignett köpt i ASFINAG-appen</span></li>
+<li class="task"><span class="box"></span><span>Eurokontanter tagna</span></li>
+<li class="task"><span class="box"></span><span>Reflexvästar och varningstriangel i bilen</span></li>
+<li class="task"><span class="box"></span><span>Chargemap Pass-kort med i väskan</span></li>
+<li class="task"><span class="box"></span><span>JSC bilpolicyinfo och nödkontakter sparade i telefonen</span></li>
+<li class="task"><span class="box"></span><span>Alla väskor packade och i bilen</span></li>
+</ul>
+<h2>Morgon 14/7 — strax innan avresa</h2>
+<ul class="task-list">
+<li class="task"><span class="box"></span><span>Tesla: kontrollera laddningsnivå — starta med minst 90 %</span></li>
+<li class="task"><span class="box"></span><span>Scandlines bekräftelse redo i telefonen (bokningsnr S2600993914)</span></li>
+<li class="task"><span class="box"></span><span>Avresa från Nässjö senast <strong>07:30</strong></span></li>
+<li class="task"><span class="box"></span><span>Nästa laddstop: Supercharger Hannover (~270 km efter Puttgarden)</span></li>
+</ul>
+      </article>
+    </section>
+
+    <section id="reference" class="panel">
+      <div class="source-label">Källa: <code>snabbreferens.md</code> · <code>nödinfo.md</code></div>
+      <article class="markdown-body">
+        <h1>Referens — Europaresa 2026</h1>
+<hr>
+<h2>Bokningar i ett svep</h2>
+<div class="table-wrap"><table><thead><tr><th>Boende</th><th>Bokningsnr</th><th>Datum</th><th>Check-in</th><th>Pris</th></tr></thead><tbody>
+<tr><td>Adesso Hotel Göttingen</td><td>Resplan 72074935107986</td><td>14–15/7</td><td>från 15:00</td><td>650 kr på plats</td></tr>
+<tr><td>Numa Salzburg Ivy</td><td>FFSHJALY-1</td><td>15–19/7</td><td>Digital via Numa-appen ⚠️</td><td>8 039 kr (betalt)</td></tr>
+<tr><td>Hotel MioMio, Tignale</td><td>Resplan 72074943156702</td><td>19–23/7</td><td>Ankomst</td><td>6 012 kr (betalt)</td></tr>
+<tr><td>PLAZA Premium Neu-Ulm</td><td>Resplan 72074942764924</td><td>23–24/7</td><td>från 15:00</td><td>1 540 kr på plats</td></tr>
+<tr><td><strong>Lübeck</strong></td><td><strong>⚠️ EJ BOKAD</strong></td><td>24–25/7</td><td>—</td><td>est. 800–1 200 kr</td></tr>
+</tbody></table></div>
+<h2>Transport</h2>
+<div class="table-wrap"><table><thead><tr><th>Post</th><th>Info</th></tr></thead><tbody>
+<tr><td>Scandlines tur</td><td>Rödby → Puttgarden · 14/7 kl 13:15 · Check-in stänger 13:00</td></tr>
+<tr><td>Scandlines bokningsnr</td><td>S2600993914 · Biljettnr SC2601753669</td></tr>
+<tr><td>Öresundsbron (tur)</td><td>Biljettnr 98026305 — ingår i Scandlines</td></tr>
+<tr><td>Scandlines retur</td><td>Puttgarden → Rödby · 25/7 kl 13:45 · Check-in stänger 13:30</td></tr>
+<tr><td>Öresundsbron (retur)</td><td>Biljettnr 39124508 — ingår i Scandlines</td></tr>
+<tr><td>Bil</td><td>Tesla Model Y · Reg.nr UKL90S</td></tr>
+</tbody></table></div>
+<hr>
+<h2>Nödinformation</h2>
+<h3>Viktigaste numren</h3>
+<div class="table-wrap"><table><thead><tr><th>Tjänst</th><th>Nummer</th><th>När</th></tr></thead><tbody>
+<tr><td><strong>112</strong></td><td><strong>112</strong></td><td>Personskada, polis, brand</td></tr>
+<tr><td><strong>Autoplan Förarsupport</strong></td><td><strong>0771-22 00 00</strong></td><td>Driftstopp, bärgning, hyrbil, skadeanmälan</td></tr>
+<tr><td><strong>SOS International</strong></td><td><strong>+45 70 10 50 50</strong></td><td>Bilskada utomlands</td></tr>
+<tr><td>Tesla Roadside</td><td>00800 80 30 40</td><td>Eller via Tesla-appen</td></tr>
+<tr><td>UD konsulärjour</td><td>+46 8 405 50 05</td><td>Konsulär hjälp dygnet runt</td></tr>
+</tbody></table></div>
+<h3>Vid olycka utomlands — gör så här</h3>
+<ol>
+<li>Sätt på varningsblinkers</li>
+<li>Ta på reflexväst — <strong>obligatoriskt i Österrike</strong></li>
+<li>Sätt ut varningstriangel ~50 m bakom bilen</li>
+<li>Ring 112 om personskada</li>
+<li>Fotografera: skador, motpartens reg.nr, plats</li>
+<li>Byt uppgifter: namn, adress, telefon, försäkringsbolag</li>
+<li>Ring <strong>SOS International +45 70 10 50 50</strong></li>
+<li>Ring <strong>Autoplan 0771-22 00 00</strong> (bärgning, hyrbil)</li>
+<li>Informera Emma/HR på JSC snarast</li>
+</ol>
+<hr>
+<h2>Destinations-kort</h2>
+<h3>Göttingen · 14–15/7</h3>
+<ul>
+<li><strong>Parkering:</strong> 1 €/tim vid automat framför hotellet — betala vid automaten, inte vid bommen</li>
+<li><strong>Tips:</strong> Historisk universitetsstad — Markt, Gänseliesel-fontänen om ork finns efter lång kördag</li>
+</ul>
+<h3>Salzburg · 15–19/7</h3>
+<ul>
+<li><strong>⚠️ Inget reception</strong> — digital check-in via Numa-appen senast 13/7 · Bokningsnr FFSHJALY-1</li>
+<li><strong>Frukostval:</strong> senast 15/7 kl 20:00 via Numa-appen</li>
+<li><strong>Laddning:</strong> Supercharger Salzburg Europark-galleriet (~3 km från Altstadt)</li>
+<li><strong>ZTL:</strong> Altstadt är delvis trafikbegränsad — parkera vid Europark och gå</li>
+<li><strong>Werfen (16/7):</strong> ~40 km söderut · Eisriesenwelt + Burg Hohenwerfen · Tidsbiljetter bör vara bokade</li>
+</ul>
+<h3>Tignale / Gardasjön · 19–23/7</h3>
+<ul>
+<li><strong>Hotell:</strong> Hotel MioMio — platå högt uppe, pool är primär svalka</li>
+<li><strong>Laddning:</strong> Neogy Gardola · P.le S. Francesco d'Assisi 8 · ~5 min · Chargemap Pass eller QR</li>
+<li><strong>Snabbladdning:</strong> SC Rovereto (~35 km), SC Trento (~40 km)</li>
+<li><strong>ZTL:</strong> Gardasjö-orter har ZTL-zoner — kör ej in i stadskärna utan att se efter skylt</li>
+</ul>
+<h3>Ulm · 23–24/7</h3>
+<ul>
+<li><strong>Hotell:</strong> PLAZA Premium Parkhotel Neu-Ulm · Parkering ingår · Check-in från 15:00</li>
+<li><strong>Sevärt:</strong> Ulm Münster + Fischerviertel längs Donau — ca 45 min promenad</li>
+</ul>
+<h3>Lübeck · 24–25/7</h3>
+<ul>
+<li><strong>⚠️ Hotell ej bokat</strong> — sök nära gamla stan</li>
+<li><strong>Morgon 25/7:</strong> Tid fram till ~12:30 · Holstentor + Marienkirche + Mengstraße (~1,5–2 timmar)</li>
+<li><strong>Färja:</strong> Puttgarden ~30 km · Lämna Lübeck senast 12:30</li>
+</ul>
+      </article>
+    </section>
+
+    <section id="diary" class="panel">
+      <div class="source-label">Källa: <code>dagbok.md</code></div>
+      <article class="markdown-body">
+        <h1 id="diary-dagbok-europaresa-2026">Dagbok — Europaresa 2026</h1>
+<p>14–25 juli. Ken och Anna. Tesla Model Y från Nässjö.</p>
+<p><em>Dagboken är berättande — upplevelser, stämning, observationer. Kostnader hör hemma i <code>ekonomi.md</code>, aktivitetstips i <code>resplan.md</code>, uppgifter i <code>att-gora.md</code>.</em></p>
+<hr>
+<h2 id="diary-forberedelser">Förberedelser</h2>
+<p><strong>2026-06-07</strong> — Bokade Scandlines kombobiljett för färjan Rödby–Puttgarden tur och retur, inklusive Öresundsbron. Utvärderade om separat bokning av färja och bro var billigare — visade sig att kombopaketet faktiskt var det bästa alternativet. Avresa 14/7 kl 13:30, hemresa 25/7 kl 13:45. Totalt 3 999 kr inkl. avbeställningsservice.</p>
+<p><strong>2026-06-27</strong> — Ken och Anna hade ett bra samtal om vad de egentligen vill prioritera under Österrike-delen av resan. Båda var överens om att Eisriesenwelt och Burg Hohenwerfen ligger högt på listan. Zell am See kändes också lockande, framför allt som plats för natur, vyer och lättare vandring. Hallstatt finns kvar som alternativ, men hamnade lägre i prioritet eftersom det verkar kräva väldigt tidig start och riskerar att vara hårt belastat av turister. Örnnästet kändes i praktiken inte längre som ett huvudalternativ.</p>
+<p>Samtalet landade också i att Salzburg gärna får upplevas, men troligen kan göras i mindre delar på kvällar och kortare luckor snarare än som en låst heldag. För transporten från Österrike till Italien lutar det tydligt åt den enklare vägen via Innsbruck och Brenner. Grossglockner och en Dolomiterna-sväng diskuterades, men bedömdes bli för lång och tung, särskilt med risk för trafik och en hel dag i bilen. Känslan efter samtalet var att det är bättre att komma ner till Italien i rimlig tid och njuta där.</p>
+<hr>
+<h2 id="diary-dag-1-14-7-nassjo-gottingen">Dag 1 · 14/7 · Nässjö → Göttingen</h2>
+<p><em>(Noteringar, upplevelser, kostnader)</em></p>
+<hr>
+<h2 id="diary-dag-2-15-7-gottingen-salzburg">Dag 2 · 15/7 · Göttingen → Salzburg</h2>
+<hr>
+<h2 id="diary-dag-3-16-7-salzburg">Dag 3 · 16/7 · Salzburg</h2>
+<hr>
+<h2 id="diary-dag-4-17-7-salzburg">Dag 4 · 17/7 · Salzburg</h2>
+<hr>
+<h2 id="diary-dag-5-18-7-salzburg">Dag 5 · 18/7 · Salzburg</h2>
+<hr>
+<h2 id="diary-dag-6-19-7-salzburg-tignale">Dag 6 · 19/7 · Salzburg → Tignale</h2>
+<hr>
+<h2 id="diary-dag-7-20-7-tignale">Dag 7 · 20/7 · Tignale</h2>
+<hr>
+<h2 id="diary-dag-8-21-7-tignale">Dag 8 · 21/7 · Tignale</h2>
+<hr>
+<h2 id="diary-dag-9-22-7-tignale">Dag 9 · 22/7 · Tignale</h2>
+<hr>
+<h2 id="diary-dag-10-23-7-tignale-ulm">Dag 10 · 23/7 · Tignale → Ulm</h2>
+<hr>
+<h2 id="diary-dag-11-24-7-ulm-lubeck">Dag 11 · 24/7 · Ulm → Lübeck</h2>
+<hr>
+<h2 id="diary-dag-12-25-7-lubeck-nassjo">Dag 12 · 25/7 · Lübeck → Nässjö</h2>
+      </article>
+    </section>
+
+    <section id="decisions" class="panel">
+      <div class="source-label">Källa: <code>besluts-logg.md</code></div>
+      <article class="markdown-body">
+        <h1 id="decisions-besluts-logg-alpresa-2026">Besluts-logg — Alpresa 2026</h1>
+<p>Logg över val och avvägningar vi gjort under planeringen. Syftet är att lära av processen till kommande resor.</p>
+<hr>
+<h2 id="decisions-format">Format</h2>
+<p>Varje beslut noteras med datum, vad som valdes, vad alternativet var, och varför.</p>
+<pre><code>**[Datum] [Kategori]**
+Val: ...
+Alternativ: ...
+Varför: ...</code></pre>
+<hr>
+<h2 id="decisions-beslut-tagna">Beslut tagna</h2>
+<p><strong>[2026-06-27] Prioriteringsordning för Österrike efter samtal</strong> Val: Isgrottan Eisriesenwelt och Burg Hohenwerfen ligger högt på prioriteringslistan. Zell am See ligger också högt, framför allt som plats för lättare vandring och natur. Salzburg vill ni uppleva, men det kan troligen delvis klaras på kvällar och kortare stunder. Hallstatt finns kvar som alternativ men är inte högt prioriterat. Örnnästet är i praktiken inte längre ett huvudalternativ. Alternativ: Tidigare låg Hallstatt, Örnnästet/Königssee, Salzburg heldag och Werfen mer jämbördigt. Varför: Hallstatt kräver väldigt tidig start och riskerar mycket turister. Örnnästet känns mindre lockande i nuvarande upplägg. Zell am See verkar ge mer av det ni faktiskt vill åt: berg, vyer och möjlig vandring utan att transportdagen till Italien behöver bli för tung.</p>
+<p><strong>[2026-06-27] Österrike-upplägg och rutt mot Italien - preliminär riktning</strong> Val: Dag 2 i Salzburg blir lugn ankomstkväll. Första hela Salzburg-dagen används till Werfen med Eisriesenwelt + Burg Hohenwerfen. De två andra Salzburg-dagarna hålls öppna utifrån väder: en möjlig heldag Zell am See + klamm, och en dag för Salzburg eller Hallstatt. Alternativ: Tidigare låg Salzburg heldag, Werfen/Berchtesgaden och Hallstatt mer utspritt och mindre tydligt prioriterat. Varför: Ni vill ha en tydlig första utflykt, men behålla flexibilitet för väder, ork och vad som känns bäst på plats.</p>
+<p><strong>[2026-06-27] Rutt Salzburg → Gardasjön - Innsbruck/Brenner som huvudspår</strong> Val: Direkt mot Innsbruck och Brenner på vägen till Italien. Alternativ: Grossglockner eller Grossglockner + Dolomiterna som längre upplevelserutt. Varför: Grossglockner är lockande men bedöms just nu inte vara värd den extra restiden på transportdagen till Tignale, särskilt med risk för trafik, lång dag och körtrötthet. Alpupplevelsen kan hellre tas under Salzburg-dagarna, t.ex. Zell am See + klamm. Målet är att komma ner till Italien i rimlig tid och njuta där nere.</p>
+<p><strong>[2026-06-25] Dag 4: Primärval ändrat — Werfen istället för Berchtesgaden</strong> Val: Eisriesenwelt + Burg Hohenwerfen (Werfen, ~40 km söder om Salzburg) som primärförslag Alternativ: Örnnästet (Kehlsteinhaus) + Königssee (Berchtesgaden) — kvar som alternativ om stämningen ändras Varför: Lutar åt isgrottan. Inget var bokat så bytet kostar ingenting. Bestäms på plats.</p>
+<p><strong>[2026-05] Garda-bas: Tignale (västra klippstranden)</strong> Val: Hotel MioMio, Tignale — platå högt uppe med panoramautsikt och pool Alternativ: Östra sidan (Malcesine-hållet), eller norra Garda (Riva) Varför: Medvetet annorlunda läge jämfört med 2025 (Desenzano). Tignale ger svalka på kvällarna, undviker turisttäta Limone och Malcesine som vi såg förra året.</p>
+<p><strong>[2026-05] Garda-aktiviteter: Ny profil</strong> Val: Lago di Tenno, Lago di Ledro, Tremosine, Strada della Forra Alternativ: Monte Baldo-linbana, Malcesine, Sirmione, Limone (alla besökta 2025) Varför: Undviker repetition. Bergssjöar och klyftvägar ger annan karaktär än 2025.</p>
+<p><strong>[2026-05] Ny destination: Salzburg som nav</strong> Val: 4 nätter Salzburg — Örnnästet, Königssee, Hallstatt, badsjö Alternativ: Direkt till Garda via München, kortare stopp Varför: Ger ett resmål med egen tyngd, inte bara genomfart. Hallstatt + badsjö ger blandad upplevelse.</p>
+<p><strong>[2026-05] Hemrutt: Ulm → Lübeck → färja</strong> Val: Ulm (1n) + Lübeck (1n) → Puttgarden → Rödby Alternativ: En lång dag direkt hem, eller annan mellannatt (Würzburg, Kassel) Varför: Ulm var redan bokat. Lübeck som sista natt är strategiskt nära färjan (90 min) och en fin avslutning. Nackdel: dag 11 Ulm→Lübeck är ~760 km, lång etapp.</p>
+<p><strong>[2026-05] Österrike dag 5: Hallstatt + badsjö</strong> Val: Hallstatt tidigt (07:30) + Wolfgangsee/Fuschlsee på eftermiddagen Alternativ: Heldags Hallstatt, eller skippa Hallstatt till förmån för en tredje utflykt Varför: Hallstatt är bäst tidigt innan bussarna. Eftermiddagen med badsjö mjukar upp dagen och är uppvärmning för Garda-stämningen.</p>
+<p><strong>[2026-05] Destination: Österrike valt före Schweiz</strong> Val: Österrike (Salzburg som nav) Alternativ: Schweiz (Interlaken, Graubünden eller liknande) Varför: Budget 800-1 500 kr/natt räcker inte till schweiziska turistorter i juli. Österrike ger likvärdig alpinupplevelse till klart lägre kostnad.</p>
+<p><strong>[2026-05] Resekaraktär: Kombination av avkoppling och natur — inte renodlad vandring</strong> Val: Gardasjön som primär bas (bad, pool, lugnt tempo) kombinerat med bergsutflykter från Salzburg (Örnnästet, Königssee, Hallstatt) Alternativ: Dolomiterna och bergsvandringstempo som primärt mål Varför: Båda vill ha lugnare tempo och möjlighet till bad, men inte en resa helt utan vandring och natur. Uppdelningen löser det: Salzburg-delen levererar berg och historia, Garda-delen levererar bad och avkoppling.</p>
+<p><strong>[2026-06-24] Rutt Salzburg → Gardasjön dag 6 — öppen fråga</strong> Val: Inte beslutat. Alternativ:</p>
+<ul>
+<li>Innsbruck &amp; Brenner: ca 45-50 mil, 4,5-5,5 h körtid, 6-8 h total tid inkl. paus/laddning, 0-1 laddstopp. Snabbast, enklast och mest transport.</li>
+<li>Grossglockner: ca 50-55 mil, 6-7 h körtid, 9-11 h total tid inkl. paus/laddning, 1 laddstopp. Spektakulär alpinväg med glaciärer, utsiktsplatser och hög upplevelsefaktor.</li>
+<li>Grossglockner + Dolomiterna: ca 60-65 mil, 8-10 h körtid, 11-14 h total tid inkl. paus/laddning, 1-2 laddstopp. Maximal naturupplevelse men risk för mycket lång resdag.</li>
+</ul>
+<p>Varför beslutet spelar roll: Vägvalet avgör om dag 6 främst blir effektiv transport till Tignale eller en av resans stora upplevelsedagar. Grossglockner ger bäst balans mellan upplevelse och rimlig dag, medan Brenner är fallback om ankomsttid och låg körtrötthet väger tyngst. Dolomiterna-varianten kräver acceptans för sen ankomst. Status: Beslut behöver tas innan avresa så att laddning, starttid och ankomst till Tignale kan planeras.</p>
+<hr>
+<h2 id="decisions-aktivitetsnoteringar">Aktivitetsnoteringar</h2>
+<p><strong>Dag 8 (21/7) — Norra Garda:</strong> Lago di Tenno + Canale di Tenno (medeltida by) som primär plan. Cascata del Varone (lättillgängligt vattenfall nära Riva del Garda) kan läggas till om tid och ork finns — kort omväg.</p>
+<hr>
+<h2 id="decisions-oppna-fragor-ej-beslutade">Öppna frågor / ej beslutade</h2>
+<ul class="task-list">
+<li class="task"><span class="box"></span><span>Lübeck-hotell (24/7) — nästa att boka</span></li>
+<li class="task"><span class="box"></span><span>Scandlines-bokning t/r — boka båda på en gång</span></li>
+<li class="task"><span class="box"></span><span>Österrikisk vignett 10 dagar — köp via ASFINAG.at, ca 340 kr</span></li>
+<li class="task"><span class="box"></span><span>Vandringsleder kring Zell am See — hitta 2-3 rimliga leder som passar en semesterdag från Salzburg.</span></li>
+<li class="task"><span class="box"></span><span>Dag 9 (22/7): Alt A Lago di Ledro (lugnt bad) eller Alt B Brenta-Dolomiterna med Lago di Tovel (bergdag)?</span></li>
+<li class="task"><span class="box"></span><span>Rutt Salzburg → Gardasjön dag 6: bekräfta Innsbruck &amp; Brenner som slutligt val före avresa.</span></li>
+<li class="task"><span class="box"></span><span>Mata in faktiska boendepriser i Excel-filen för att låsa budgeten exakt</span></li>
+</ul>
+<hr>
+<h2 id="decisions-lardomar-att-ta-med-till-2027">Lärdomar att ta med till 2027</h2>
+<p><em>(Fylls i under och efter resan)</em></p>
+      </article>
+    </section></div>
+</main>
+<footer>
+  <div class="wrap">Europaresa 2026 · genererad från Markdown · 2026-07-08</div>
+</footer>
+<script>
+document.querySelectorAll('.tab').forEach(button => {
+  button.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(panel => panel.classList.remove('active'));
+    button.classList.add('active');
+    document.getElementById(button.dataset.panel).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
